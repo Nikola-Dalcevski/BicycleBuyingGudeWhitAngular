@@ -1,0 +1,25 @@
+<div  class="col-lg-12 row" *ngIf="!selectedBike" >
+  <div *ngFor="let bike of bikeList"
+    class='col-sm-12 col-lg-4 bikes-render'>
+   
+        <a  [routerLink]="['/exploreBikes', bike.fullName]"   >
+          <!-- <button type='button' class='bikeInfo' value='{{bike.fullname}}' > -->
+              <div (click)="onSelect(bike)">
+          
+        <img src="../../assets/Images/image1.jpg" class="bikeImage" alt="">
+        <p>Brand: {{bike.brand}}</p>
+        <p>Model: {{bike.model}}</p>
+        <p>Type : {{bike.type}}</p>
+     
+        <!-- </button> -->
+      </div>
+      </a>
+    </div>
+    
+    <bike-info [bike]="selectedBike"></bike-info>
+</div>
+   <!-- <div *ngIf="false">
+      <bike-info [bike]="selectedBike"></bike-info>
+   </div> -->
+    
+

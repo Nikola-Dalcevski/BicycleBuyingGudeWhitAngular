@@ -1,0 +1,13 @@
+.main {
+    background-image: url("../assets/Images/background2.jpg");
+    border-image-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+   
+}
+.container{
+    max-width: 70%;
+    /* background-color: #fff; */
+    text-align: center;
+}
+  

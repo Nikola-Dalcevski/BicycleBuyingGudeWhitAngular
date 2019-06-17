@@ -1,0 +1,25 @@
+.tumb{
+    width: 108px;
+    height: 108px;
+    border: 1px solid gray;
+    
+  }
+  .tumbs {
+      padding-top: 20px;
+  }
+  .tumbs :hover{
+  opacity: 0.5; 
+  cursor: pointer;
+  }
+  #main-img-bike{
+      width: 500px;
+      height: 400px;
+  }
+
+  
+.container{
+    max-width: 100%;
+    background-color: #fff;
+    
+    text-align: center;
+}

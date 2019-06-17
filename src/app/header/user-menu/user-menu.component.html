@@ -1,0 +1,20 @@
+<ul class="nav justify-content-end" > 
+
+   <li class="nav-items ">
+    <form action="">
+        <select ngModel="selectedItem"   #model="ngModel" class="userMenu" (change)="log(model)" name="sel">
+            <option  value="menu">menu</option>
+            <option value="favorite">Favorite Bikes</option>
+            <option value="logout">Logout</option>
+          
+          </select>
+    </form>
+     
+  </li> 
+   <li class="nav-items">
+      <span class="navbar-text userWelcome nav-link">
+         Wlcome: {{name}}
+      </span>
+  </li>
+
+</ul> 

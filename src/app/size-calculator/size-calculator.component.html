@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="col-lg-12">
+  <h2 class="text-center">
+  Clalculate Bicycle Size
+  </h2>
+
+  </div>
+
+  <div class="col-lg-12 row">
+  <div class="col-lg-6">
+
+  <ol>
+     <li>
+        Be sure of the type of bicycle you want: Mountain bike, city bike or road bike. You can
+        read about the different bike types
+     </li>
+      <li>
+      Take off your shoes and stand with your legs about 15-20 cm(6” – 8”) apart. Measure the
+      height from the ground to your crotch. (B)
+      </li>
+       <li>
+       Take off your shoes and stand with your legs about 15-20 cm(6” – 8”) apart. Measure the
+       height form the ground to top of your head. (A)
+       </li>
+      <li>
+       To choose a size you should stand over the frame with both feet flat on the ground. A
+       properly sized bike frame will have 5cm(2") clearance between the top tube of the frame
+       and your crotch. (C)
+      </li>
+  </ol>
+  </div> 
+
+  <img class="col-lg-6" src="../../assets/Images/shema-bikeman.gif" alt="How to calculate size">
+  </div>
+  <div class="col-lg-12 row">
+      <div class="col-lg-6">
+            <form #form="ngForm"  class="" (submit)=onSubmit(form) name="sizeCal" >
+                    <div class="form-group">
+                    <div class="col-lg-12">
+                        <span class="col-lg-6 ">Enter your Height (cm)</span>
+                        <select  class="col-lg-5 offset-lg-5 form-contol " ngModel #model="ngModel"  name="height" (change)="changeHeight(model)" required >
+                            <!-- <option  disabled value="">Choose your height</option> -->
+                            <option    *ngFor="let option of heightSizes" [value]="option" >{{option}}</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-12">
+            
+                        <span class="col-lg-6 ">Enter your leg inseam (cm)</span>
+                
+                         <select class="col-lg-5 offset-lg-5" ngModel name="inseam" id="selectInseam" required>
+                             <option  value="">Choose your inseam height</option>
+                                <option    *ngFor="let option of inseamSizes"  >{{option}}</option>
+                         </select>
+                                
+                    </div>
+                
+                
+                
+                    <div>
+                        <input type="submit" class="btn-primary">
+                        <!-- <button type="submit"  id="calculate">Calculate</button> -->
+                  
+                    </div>
+                </div>
+                </form>
+      </div>
+    
+    <div class="col-lg-6" *ngIf="bikeSizes.length">
+       <p>Your Mountain and Hibride bike tube size is {{ bikeSizes[0].MountHibrid.inches }}"</p>
+       <p>Your Mountain and Hibride bike size is {{bikeSizes[0].MountHibrid.size}}</p>
+       <p>Your Road bike size is {{bikeSizes[0].Road.inches}}"</p>
+       <p>Your Road bike size is {{bikeSizes[0].Road.size}}</p>
+    </div>
+    </div>
+    
+     </div>
+     

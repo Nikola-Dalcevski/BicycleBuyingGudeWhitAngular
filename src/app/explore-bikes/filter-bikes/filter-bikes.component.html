@@ -1,0 +1,90 @@
+<div   class="row">
+  <div class="col-lg-3">
+    <div class="asaid-nav">
+      <form action="">
+        <div class="row no-gutters">
+          <input type="text" placeholder="Search" class="search col-lg-9" id="search">
+          <!-- <div class="col-lg-3"> -->
+            <button type="submit" id="searchButton" value="something"><i class="fa fa-search"></i></button>
+          <!-- </div> -->
+        </div> <br>
+      </form>
+
+      <form #f="ngForm" (ngSubmit)="onSubmit($event,f)" >
+        <p class="nav-heading">Type</p>
+        <label for="">
+          <input type="checkbox" ngModel name="isSelected" value="Road">Road
+        </label><br>
+        <label for="">
+          <input type="checkbox" ngModel name="isSelected" value="Mountain">Mountain
+        </label><br>
+        <label for="">
+          <input type="checkbox" ngModel name="isSelected" value="Hibrid">Hibrid
+        </label><br>
+        <hr>
+        <label for="">
+          <input type="checkbox" ngModel name="isSelected" value="Scott">Scott
+        </label><br>
+        <label for="">
+          <input type="checkbox" ngModel name="isSelected" value="Cube">Cube
+        </label><br>
+        <label for="">
+          <input type="checkbox" ngModel name="isSelected" value="Trek">Trek
+        </label><br>
+        <label for="">
+          <input type="checkbox" ngModel name="isSelected" value="Focus">Focus
+        </label><br>
+        <hr>
+        <label for="">
+          <input type="checkbox" ngModel name="isSelected" value="29">29
+        </label><br>
+        <label for="">
+          <input type="checkbox" ngModel name="isSelected" value="27.5">27.5
+        </label><br>
+        <label for="">
+          <input type="checkbox" ngModel name="isSelected" value="700c">700c
+        </label><br>
+        <label for="">
+          <input type="checkbox" ngModel name="isSelected" value="650c">650c
+        </label><br>
+        <!-- <input type="checkbox" value="Road" name="type" id="road">  <br>
+  <input type="checkbox" value="Mountain" name="type" id="mountain"> Mountain <br>
+  <input type="checkbox" value="Hibrid" name="type" id="hibrid"> Hibrid <br> <br>
+  <hr>
+  <p class="nav-heading">Brand</p>
+  <input type="checkbox" value="Scott" name="brand" id="scott"> Scott <br>
+  <input type="checkbox" value="Cube" name="brand" id="cube"> Cube <br>
+  <input type="checkbox" value="Trek" name="brand" id="trek"> Trek <br>
+  <input type="checkbox" value="Focus" name="brand" id="focus"> Focus <br><br>
+  <hr>
+  <p class="nav-heading">Tires size</p>
+  <input type="checkbox" value="29" name="tireSize" id="29"> 29 <br>
+  <input type="checkbox" value="27.5" name="tireSize" id="27-5"> 27.5 <br>
+  <input type="checkbox" value="700c" name="tireSize" id="700c"> 700c <br>
+  <input type="checkbox" value="650c" name="tireSize" id="650c"> 650c <br> <br>
+   -->
+        <div class="col-lg-12 submitSort">
+          <hr>
+         
+          
+          <input type="submit" >
+          <input type="reset">
+        </div>
+
+      </form>
+      <p>{{f.value | json}}</p>
+    </div>
+  </div>
+  
+  <div class="col-lg-9">
+    <div *ngIf="!filteredBikes">
+      Loading
+    </div>
+    <div *ngIf="filteredBikes">
+        <show-bikes [bikeList]="filteredBikes" ></show-bikes>
+    </div>
+        
+  </div>
+  </div>
+
+  

@@ -1,0 +1,13 @@
+<div class="container">
+
+   <div  *ngIf="!isFinished">
+     loading
+   </div>
+ 
+   <div *ngIf="isFinished">
+    <filter-bikes [BikesList]="bikes" (sendValue)="isFinished = $event"></filter-bikes>
+    
+    <bike-info [bike]="selectedBike"></bike-info>
+  </div>
+ 
+</div>
