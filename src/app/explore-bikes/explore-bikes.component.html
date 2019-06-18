@@ -5,7 +5,7 @@
    </div>
  
    <div *ngIf="isFinished">
-    <filter-bikes [BikesList]="bikes" (sendValue)="isFinished = $event"></filter-bikes>
+    <filter-bikes [BikesList]="bikes"></filter-bikes>
     
     <bike-info [bike]="selectedBike"></bike-info>
   </div>

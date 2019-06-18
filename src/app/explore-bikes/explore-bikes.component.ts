@@ -14,35 +14,21 @@ import { Http } from '@angular/http';
 })
 export class ExploreBikesComponent implements OnInit {
    bikes: Bike[];
+   isFinished: boolean;
    
-   @Input() filter:  any[];
-   
-   isFinished: string;
-   
-  constructor(http: Http) {
-      
-    http.get('https://raw.githubusercontent.com/Nikola-Dalcevski/test-api/master/db.json')
-    .subscribe(res => {
-      
-       let data = res.json().Bikes;
-       this.bikes= [];
-       for(let bike of data){       
-        this.bikes.push(new Bike(bike));
-        console.log("call on submit");
-        this.isFinished = "yes";
-       }
-      
-  })
-    //    this.filter.forEach(type => {
-    //     this.bikes.filter(bike => bike.brand === type || bike.type === type || bike.tireSize == type);
-    //   })
-     
-    //  console.log(this.bikes);
+  constructor( private getBikes: GetBikesService) {}
 
-   }
+
+
   ngOnInit() {
-    console.log("explore Init")
-    console.log(this.isFinished);
-  }
+    
+    this.getBikes.sendBikes.subscribe(bikes => {
+      if(bikes){     
+      this.bikes = bikes.bikes;
+      this.isFinished = true;
+      }
 
+    });
+     
+  }
 }

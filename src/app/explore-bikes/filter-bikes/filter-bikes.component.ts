@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Bike } from 'src/app/bike';
+import { FilterServicesService } from './filter-services.service';
 
 // import { showBikesComponent } from "../show-bikes/show-bikes.component"
 
@@ -13,69 +14,43 @@ import { Bike } from 'src/app/bike';
 
 })
 export class FilterBikesComponent implements OnInit {
-  filters: string[];
-  @Input()BikesList ;
-  @Output() sendValue:EventEmitter<string> = new EventEmitter();
-  isFinished: string;
-  filteredBikes;
+  //filters: string[];
+  @Input()BikesList;
+
+  // isFinished: string;
+  filteredBikes: Bike[];
   usedfilter: boolean;
    selBike;
-  constructor() { 
-    
-    
  
-    
-  }
-
-  onSubmit(f,s){
-    // console.log(this.filteredBikesList);
-    this.usedfilter = true;
-    console.log(s);
-    
-    this.filters = [];
-    console.log(this.BikesList);
-    console.log(typeof f.target.elements);
-    for(let element of f.target.elements ){
-      if(element.checked) this.filters.push(element.value)
-    }
-    this.filterBikes();
-    console.log("call");
-    this.isFinished = "show";
-    this.sendValue.emit(this.isFinished);
-    this.ngOnInit();
-    //console.log(this.filters);
-  }
-
-
-  filterBikes(){
-
    
-    this.filters.forEach(type => {
-     
-      console.log(typeof type);
-     this.selBike = this.BikesList.filter(bike => bike.type === type || bike.brand === type || bike.tireSize.toString() === type);
-     console.log(this.selBike);
- 
-    })
+  constructor(private filterService: FilterServicesService) { 
 
- 
+  }
 
-  };
+  onSubmit(event,form){
+    this.usedfilter = true;
+    let elements = event.target.elements;
+    this.filterService.filterBikes(elements, this.BikesList); 
+    form.reset();
+  }
+
+  showFilteredBikes(){
+    if(this.usedfilter){
+      this.filteredBikes = this.selBike;
+     }
+     else{
+     this.filteredBikes = this.BikesList;
+     }
+   }
+  
+
 
 
 
   ngOnInit() {
-   
-   console.log("filterinit");
-  //  console.log(this.usedfilter);
-   if(this.usedfilter){
-     this.filteredBikes = this.selBike;
-    console.log(this.filteredBikes)
-    }
-    else{
-    this.filteredBikes = this.BikesList;
-     console.log(this.filteredBikes);
-    }
+    this.filterService.sendBikeList.subscribe(bikes => {
+      this.selBike = bikes;
+      this.showFilteredBikes();
+    });
   }
-
 }

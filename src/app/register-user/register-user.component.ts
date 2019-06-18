@@ -24,9 +24,9 @@ export class RegisterUserComponent implements OnInit {
     this.name = event.value.name;
     this.email = event.value.email;
     this.password = event.value.regPassword;
-   await this.authService.signup(event.value.email,event.value.regPassword, event.value.name)
+    await this.authService.signup(event.value.email,event.value.regPassword, event.value.name)
    
-     this.errorMessage = this.authService.errorMessage
+    this.errorMessage = this.authService.errorMessage
  
     
   }

@@ -11,19 +11,12 @@ export class LogInComponent implements OnInit {
   email: string;
   password: string;
   loginError;
-  userMenu: boolean = false;
-  test: boolean;
+  // userMenu: boolean = false;
+  // test: boolean;
   userName;
   showUserMenu;
 
-  constructor(public authService: AuthFirebaseService,private httpBikeService: HttpUserBikesService ) {
-  
-   
-    console.log(httpBikeService);
-    console.log("call");
-  
-  }
-
+  constructor(public authService: AuthFirebaseService,private httpBikeService: HttpUserBikesService ) {}
 
 
 
@@ -32,30 +25,18 @@ export class LogInComponent implements OnInit {
   this.password =  logInForm.value.pass;
   await this.authService.login(this.email, this.password);
   this.loginError = this.authService.logInError;
- 
-   
- 
   
-  
- 
-    console.log(this.showUserMenu);
-    console.log(this.userName);
-    console.log(this.loginError);
-     
   }
 
 
-  changeShow(event){
-     console.log("event");
-     console.log(event);
-  }
+
 
 
   ngOnInit() {
    
 
     this.authService.userSend.subscribe(x => {
-     console.log("kokaaaan")
+    
       this.showUserMenu = x ? true : false;
      this.userName = x;
       

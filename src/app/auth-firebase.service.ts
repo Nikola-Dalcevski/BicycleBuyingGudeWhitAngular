@@ -6,6 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Observable } from 'rxjs';
 import { Http } from '@angular/http';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { defineBase } from '@angular/core/src/render3';
 
 
 @Injectable({
@@ -56,7 +57,8 @@ export class AuthFirebaseService {
       console.log(value.user.displayName);
  
        this.user.next(value.user.displayName);
-         
+       //for add bike
+       this.userId = value.user.uid  
         
         })
       
@@ -67,7 +69,9 @@ export class AuthFirebaseService {
       });
   }
 
-  
+  addBikeToUser(){
+    console.log(this.db.database);
+  }
 
 
   logout() {

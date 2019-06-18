@@ -1,74 +1,72 @@
 <div *ngIf="bike" class="container">
-        <div class="row">
-                <div class="col-lg-6 ">
-                    <div class="row">
-                        <img id="main-img-bike" class="col-lg-12" src="../../assets/Images/image1.jpg" alt="bike image" >
-                        <div class="col-lg-12  ">
-                            <div class="row no-gutters tumbs">
-                                <img class="col-lg-3 tumb" src="../../assets/Images/image1.jpg" alt="" >
-                                <img class="col-lg-3 tumb" src="../../assets/Images/image2.jpg" alt="">
-                                <img class="col-lg-3 tumb" src="../../assets/Images/image3.jpg" alt="">
-                                <img class="col-lg-3 tumb" src="../../assets/Images/image4.jpg" alt="">
-                            </div>
-                
-                        </div>
-                        <button id="addBtn" class="btn-success customAdd" (click)="addBike()">add in Favorites</button>
+    <div class="row">
+        <div class="col-lg-6 ">
+            <div class="row">
+                <img id="main-img-bike" class="col-lg-12" src="../../assets/Images/image1.jpg" alt="bike image">
+                <div class="col-lg-12  ">
+                    <div class="row no-gutters tumbs">
+                        <img class="col-lg-3 tumb" src="../../assets/Images/image1.jpg" alt="">
+                        <img class="col-lg-3 tumb" src="../../assets/Images/image2.jpg" alt="">
+                        <img class="col-lg-3 tumb" src="../../assets/Images/image3.jpg" alt="">
+                        <img class="col-lg-3 tumb" src="../../assets/Images/image4.jpg" alt="">
                     </div>
-                
-                
-                
+
                 </div>
-                
-                <div class="col-lg-6">
-                    <div>
-                        <h1>{{bike.brand}}</h1>
-                        <h2>{{bike.fullName}}</h2>
-                    </div>
-                    <ul>
-                        <li> <span class="infoFeatures">Frame</span>
-                            <p>{{bike.frame}}</p>
-                        </li>
-                        <li> <span class="infoFeatures">Fork</span>
-                            <p>{{bike.fork}}</p>
-                        </li>
-                        <li> <span class="infoFeatures">Handlebar</span>
-                            <p>{{bike.handlebar}}</p>
-                        </li>
-                        <li> <span class="infoFeatures">Front hub</span>
-                            <p>{{bike.frontHub}}</p>
-                        </li>
-                        <li> <span class="infoFeatures">Rear hub</span>
-                            <p>{{bike.rearHub}}</p>
-                        </li>
-                        <li> <span class="infoFeatures">Rear deraillerur</span>
-                            <p>{{bike.rearDeraillerur}}</p>
-                        </li>
-                        <li> <span class="infoFeatures">Crankset</span>
-                            <p>{{bike.crankset}}</p>
-                        </li>
-                        <li> <span class="infoFeatures">Cassate</span>
-                            <p>{{bike.cassatte}}</p>
-                        </li>
-                        <li> <span class="infoFeatures">Chain</span>
-                            <p>{{bike.chain}}</p>
-                        </li>
-                        <li> <span class="infoFeatures">Brakes</span>
-                            <p>{{bike.brakes}}</p>
-                        </li>
-                        <li> <span class="infoFeatures">Seat</span>
-                            <p>{{bike.seat}}</p>
-                        </li>
-                        <li> <span class="infoFeatures">Tires</span>
-                            <p>{{bike.tiresInfo}} size: {{bike.tireSize}}</p>
-                        </li>
-                        <li> <span class="infoFeatures">Weight</span>
-                            <p>{{bike.weight}}</p>
-                        </li>
-                
-                
-                    </ul>
-                </div>
+                <button id="addBtn" class="btn-success customAdd" (click)="addBike()">add in Favorites</button>
             </div>
+
+
+
+        </div>
+
+        <div class="col-lg-6">
+            <div>
+                <h1>{{bike.brand}}</h1>
+                <h2>{{bike.fullName}}</h2>
+            </div>
+            <ul>
+                <li> <span class="infoFeatures">Frame</span>
+                    <p>{{bike.frame}}</p>
+                </li>
+                <li> <span class="infoFeatures">Fork</span>
+                    <p>{{bike.fork}}</p>
+                </li>
+                <li> <span class="infoFeatures">Handlebar</span>
+                    <p>{{bike.handlebar}}</p>
+                </li>
+                <li> <span class="infoFeatures">Front hub</span>
+                    <p>{{bike.frontHub}}</p>
+                </li>
+                <li> <span class="infoFeatures">Rear hub</span>
+                    <p>{{bike.rearHub}}</p>
+                </li>
+                <li> <span class="infoFeatures">Rear deraillerur</span>
+                    <p>{{bike.rearDeraillerur}}</p>
+                </li>
+                <li> <span class="infoFeatures">Crankset</span>
+                    <p>{{bike.crankset}}</p>
+                </li>
+                <li> <span class="infoFeatures">Cassate</span>
+                    <p>{{bike.cassatte}}</p>
+                </li>
+                <li> <span class="infoFeatures">Chain</span>
+                    <p>{{bike.chain}}</p>
+                </li>
+                <li> <span class="infoFeatures">Brakes</span>
+                    <p>{{bike.brakes}}</p>
+                </li>
+                <li> <span class="infoFeatures">Seat</span>
+                    <p>{{bike.seat}}</p>
+                </li>
+                <li> <span class="infoFeatures">Tires</span>
+                    <p>{{bike.tiresInfo}} size: {{bike.tireSize}}</p>
+                </li>
+                <li> <span class="infoFeatures">Weight</span>
+                    <p>{{bike.weight}}</p>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
 </div>
-
-
