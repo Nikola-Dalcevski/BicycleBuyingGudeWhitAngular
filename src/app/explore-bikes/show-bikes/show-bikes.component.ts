@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output,} from '@angular/core';
 import { Bike } from 'src/app/bike';
-import { BikeInfoService } from 'src/app/bike-info.service';
+import { BikeInfoService } from '../bike-info/bike-info.service';
 
 @Component({
   selector: 'show-bikes',
@@ -8,11 +8,11 @@ import { BikeInfoService } from 'src/app/bike-info.service';
   styleUrls: ['./show-bikes.component.css']
 })
 export class ShowBikesComponent implements OnInit {
-  @Input() bikeList;
+ @Input() bikeList;
   bikeInfo: Bike;
   bikeLists;
 
-  constructor(private data: BikeInfoService) {}
+  constructor(private data: BikeInfoService) {this.onSelect(null)}
 
 
    onSelect(bike){
@@ -21,7 +21,8 @@ export class ShowBikesComponent implements OnInit {
 
 
   ngOnInit() {
-    
+    console.log("showBikes")
+    this.onSelect(null);
   }
 
 }

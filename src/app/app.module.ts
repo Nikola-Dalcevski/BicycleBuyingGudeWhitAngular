@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router'
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { TypeOfBikesComponent } from './type-of-bikes/type-of-bikes.component';
@@ -28,6 +27,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthFirebaseService } from './auth-firebase.service';
 import { LogInComponent } from './header/log-in/log-in.component';
 import { UserMenuComponent } from './header/user-menu/user-menu.component';
+import { ApRoutingModule } from './app-routing.module'
 
 
 
@@ -61,31 +61,27 @@ import { UserMenuComponent } from './header/user-menu/user-menu.component';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([
-     // {path: '', component: HomeComponentComponent},
-      {path: '', component: TypeOfBikesComponent},
-      {path: 'bikeFeatures', component: BikeFeaturesComponent},
-      {path: 'sizeCalculator', component: SizeCalculatorComponent},
-      {path: 'exploreBikes/:bikename', component: BikeInfoComponent},
-      {path: 'exploreBikes', component: ExploreBikesComponent},
-      {path: 'registerUser', component: RegisterUserComponent},
+    // RouterModule.forRoot([
+    //  // {path: '', component: HomeComponentComponent},
+    //   {path: '', component: TypeOfBikesComponent},
+    //   {path: 'bikeFeatures', component: BikeFeaturesComponent},
+    //   {path: 'sizeCalculator', component: SizeCalculatorComponent},
+    //   {path: 'exploreBikes/:bikename', component: BikeInfoComponent},
+    //   {path: 'exploreBikes', component: ExploreBikesComponent},
+    //   {path: 'registerUser', component: RegisterUserComponent},
       
-      {path: '**', component: NotFoundComponent }
+    //   {path: '**', component: NotFoundComponent }
 
       
-    ]),
+    // ]),
     HttpModule,
     AngularFontAwesomeModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firabase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-  
+    ApRoutingModule,
     
-  
-    
-    
-
   ],
   providers: [AuthFirebaseService],
   bootstrap: [AppComponent]

@@ -31,7 +31,7 @@ export class FilterBikesComponent implements OnInit {
     this.usedfilter = true;
     let elements = event.target.elements;
     this.filterService.filterBikes(elements, this.BikesList); 
-    form.reset();
+    // form.reset();
   }
 
   showFilteredBikes(){
@@ -43,12 +43,20 @@ export class FilterBikesComponent implements OnInit {
      }
    }
   
-
+  SearchFunction(form){
+    this.usedfilter = true;
+    let search = form.value.search;
+    this.filterService.searchBikes(search, this.BikesList)
+    console.log(search)
+    // form.reset();
+  }
 
 
 
   ngOnInit() {
+    console.log("FilterBikes");
     this.filterService.sendBikeList.subscribe(bikes => {
+      console.log(bikes);
       this.selBike = bikes;
       this.showFilteredBikes();
     });

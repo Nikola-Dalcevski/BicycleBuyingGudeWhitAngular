@@ -16,7 +16,7 @@ export class LogInComponent implements OnInit {
   userName;
   showUserMenu;
 
-  constructor(public authService: AuthFirebaseService,private httpBikeService: HttpUserBikesService ) {}
+  constructor(public authService: AuthFirebaseService ) {}
 
 
 
@@ -24,6 +24,7 @@ export class LogInComponent implements OnInit {
   this.email = logInForm.value.email;
   this.password =  logInForm.value.pass;
   await this.authService.login(this.email, this.password);
+  
   this.loginError = this.authService.logInError;
   
   }

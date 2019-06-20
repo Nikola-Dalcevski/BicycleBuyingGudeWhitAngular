@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 
-import { Bike } from './bike';
+import { Bike } from '../../bike';
 import { BehaviorSubject } from 'rxjs';
 
 

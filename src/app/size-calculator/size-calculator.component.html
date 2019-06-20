@@ -39,7 +39,7 @@
                     <div class="col-lg-12">
                         <span class="col-lg-6 ">Enter your Height (cm)</span>
                         <select  class="col-lg-5 offset-lg-5 form-contol " ngModel #model="ngModel"  name="height" (change)="changeHeight(model)" required >
-                            <!-- <option  disabled value="">Choose your height</option> -->
+                             <option  disabled value="">Choose your height</option> 
                             <option    *ngFor="let option of heightSizes" [value]="option" >{{option}}</option>
                         </select>
                     </div>

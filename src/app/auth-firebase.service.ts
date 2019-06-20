@@ -63,7 +63,8 @@ export class AuthFirebaseService {
         })
       
       .catch(err => {
-        this.logInError = err;
+       
+        this.logInError = err.message;
     
         
       });

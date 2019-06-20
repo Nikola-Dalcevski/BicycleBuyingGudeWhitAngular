@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { Bike } from '../../bike';
 import { ShowBikesComponent } from '../show-bikes/show-bikes.component';
-import { BikeInfoService } from 'src/app/bike-info.service';
+import { BikeInfoService } from './bike-info.service';
 import { AngularFireDatabase} from 'angularfire2/database';
 import { AuthFirebaseService } from 'src/app/auth-firebase.service';
 
@@ -31,11 +31,16 @@ export class BikeInfoComponent implements OnInit {
    }
   
   ngOnInit() {
+     
+     
+      
+    this.data.currentBikeInfo.subscribe(bikeInfo => this.bike = bikeInfo);
+   
 
-    this.data.currentBikeInfo.subscribe(bikeInfo => this.bikeInfo = bikeInfo)
-
-    this.bike = this.bikeInfo;
+    // this.bike = this.bikeInfo;
+    
 
   }
+  
 
 }
