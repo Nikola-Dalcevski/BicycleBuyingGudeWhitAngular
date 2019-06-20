@@ -1,25 +1,23 @@
 <div class="row">
   <div class="col-lg-3">
     <div class="asaid-nav">
-      <form #fa="ngForm" (ngSubmit)="SearchFunction(fa)" >
+      <form #fa="ngForm" (ngSubmit)="SearchFunction(fa)">
         <div class="row no-gutters">
-          <input type="text" ngModel placeholder="Search" name="search"  class="search col-lg-9" id="search">
+          <input type="text" ngModel placeholder="Search" name="search" class="search col-lg-9" id="search">
           <!-- <div class="col-lg-3"> -->
-          <button type="submit" id="searchButton"  value="something"><i class="fa fa-search"></i></button>
+          <button type="submit" id="searchButton" value="something"><i class="fa fa-search"></i></button>
           <!-- </div> -->
         </div> <br>
       </form>
 
       <form #f="ngForm" (ngSubmit)="onSubmit($event,f)">
         <p class="nav-heading">Type</p>
-        <div class="form-group">
-          <label for="">
-            <input type="checkbox" ngModel name="Type" value="Road">Road
-          </label><br>
-          <label for="">
-            <input type="checkbox" ngModel name="Type" value="Mountain">Mountain
-          </label><br>
-        </div>
+        <label for="">
+          <input type="checkbox" ngModel name="Type" value="Road">Road
+        </label><br>
+        <label for="">
+          <input type="checkbox" ngModel name="Type" value="Mountain">Mountain
+        </label><br>
         <label for="">
           <input type="checkbox" ngModel name="Type" value="Hibrid">Hibrid
         </label><br>

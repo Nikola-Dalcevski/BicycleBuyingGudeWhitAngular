@@ -27,7 +27,9 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthFirebaseService } from './auth-firebase.service';
 import { LogInComponent } from './header/log-in/log-in.component';
 import { UserMenuComponent } from './header/user-menu/user-menu.component';
-import { ApRoutingModule } from './app-routing.module'
+import { ApRoutingModule } from './app-routing.module';
+import { PagerService } from './pager.service';
+
 
 
 
@@ -83,7 +85,10 @@ import { ApRoutingModule } from './app-routing.module'
     ApRoutingModule,
     
   ],
-  providers: [AuthFirebaseService],
+  providers: [
+    AuthFirebaseService,
+    PagerService
+  ],
   bootstrap: [AppComponent]
 
 })

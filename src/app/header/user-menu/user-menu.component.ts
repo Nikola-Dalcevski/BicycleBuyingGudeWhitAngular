@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Router, RouterLinkWithHref } from '@angular/router';
+
 import { AuthFirebaseService } from 'src/app/auth-firebase.service';
 
 @Component({
@@ -9,25 +9,21 @@ import { AuthFirebaseService } from 'src/app/auth-firebase.service';
 })
 export class UserMenuComponent implements OnInit {
   
-  router: Router;
   @Input() name: string;
   @Output() showwUserMenu = new EventEmitter<boolean>();
 
-  constructor(router: Router, private authService: AuthFirebaseService) { 
-    this.router = router;
-  
-  }
+  constructor( private authService: AuthFirebaseService) { }
 
   log(model){
     console.log(model);
-    //set the routes from the userManu
+ 
     if(model.value == "logout"){
      
       this.authService.logout();
      
       console.log("logout");
       this.showwUserMenu.emit(false);
-      // this.router.navigate(['/typeOfBikes']);
+   
     }
   }
 

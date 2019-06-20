@@ -38,6 +38,6 @@
      <!-- <span *ngIf="loginError" class="alert-sm alert-denger warning ">{{loginError}} </span>  -->
  </div> 
 
-<div *ngIf="showUserMenu" (showwUserMenu)="changeShow($event)" >
-    <user-menu [name]="userName" ></user-menu>
+<div *ngIf="showUserMenu"  >
+    <user-menu [name]="userName" (showwUserMenu)="changeShow($event)"></user-menu>
 </div>

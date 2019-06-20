@@ -54,7 +54,7 @@ export class FilterBikesComponent implements OnInit {
 
 
   ngOnInit() {
-    console.log("FilterBikes");
+   
     this.filterService.sendBikeList.subscribe(bikes => {
       console.log(bikes);
       this.selBike = bikes;

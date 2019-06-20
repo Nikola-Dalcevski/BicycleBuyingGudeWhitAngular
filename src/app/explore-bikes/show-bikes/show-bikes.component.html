@@ -3,7 +3,7 @@
     class='col-sm-12 col-lg-4 bikes-render'>
    
         <a  [routerLink]="['/exploreBikes', bike.fullName]"   >
-          <!-- <button type='button' class='bikeInfo' value='{{bike.fullname}}' > -->
+      
               <div (click)="onSelect(bike)">
           
         <img src="../../assets/Images/image1.jpg" class="bikeImage" alt="">
@@ -11,15 +11,45 @@
         <p>Model: {{bike.model}}</p>
         <p>Type : {{bike.type}}</p>
      
-        <!-- </button> -->
+    
       </div>
       </a>
+    </div>
+
+    <!-- <div>
+        <div class="container">
+            <div class="text-center">
+                
+    
+               
+                <div *ngFor="let item of pagedItems">{{item.name}}</div>
+    
+            
+                <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+                    <li [ngClass]="{disabled:pager.currentPage === 1}">
+                        <a (click)="setPage(1)">First</a>
+                    </li>
+                    <li [ngClass]="{disabled:pager.currentPage === 1}">
+                        <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+                    </li>
+                    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                        <a (click)="setPage(page)">{{page}}</a>
+                    </li>
+                    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                        <a (click)="setPage(pager.currentPage + 1)">Next</a>
+                    </li>
+                    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                        <a (click)="setPage(pager.totalPages)">Last</a>
+                    </li>
+                </ul>
+            </div>
+        </div> -->
+    <div *ngIf="bikeList.length == 0">
+         Nothing Found!
     </div>
     
     <bike-info ></bike-info> 
 </div>
-   <!-- <div *ngIf="false">
-      <bike-info [bike]="selectedBike"></bike-info>
-   </div> -->
+
     
 

@@ -29,7 +29,10 @@ export class LogInComponent implements OnInit {
   
   }
 
-
+  changeShow(event){
+    console.log(event);
+    this.showUserMenu = false;
+  }
 
 
 
