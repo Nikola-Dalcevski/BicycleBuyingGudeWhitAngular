@@ -2,12 +2,17 @@
 
    <li class="nav-items ">
     <form action="">
-        <select ngModel="selectedItem"   #model="ngModel" class="userMenu" (change)="log(model)" name="sel">
+        <!-- <select ngModel="selectedItem"   #model="ngModel" class="userMenu" (change)="log(model)" name="sel">
             <option  value="menu">menu</option>
             <option value="favorite">Favorite Bikes</option>
             <option value="logout">Logout</option>
           
-          </select>
+          </select> -->
+          <ul>
+             <li><button class="btn-primary"  (click)="dropDown()">userMenu</button></li>
+             <li class="drop" ><button class="btn-primary">Favorite Bikes</button></li>
+             <li class="drop" ><button class="btn-primary">Log out</button></li>
+          </ul>
     </form>
      
   </li> 

@@ -10,3 +10,13 @@
 option {
     color: black;
 }
+li{
+    list-style-type: none;
+}
+.drop{
+    display: none;
+}
+
+.show{
+    display: block;
+}

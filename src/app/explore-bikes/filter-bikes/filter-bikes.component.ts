@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Bike } from 'src/app/bike';
 import { FilterServicesService } from './filter-services.service';
-
+import {  ShowBikesComponent } from '../show-bikes/show-bikes.component';
 // import { showBikesComponent } from "../show-bikes/show-bikes.component"
 
  @Component({
@@ -16,8 +16,9 @@ import { FilterServicesService } from './filter-services.service';
 export class FilterBikesComponent implements OnInit {
   //filters: string[];
   @Input()BikesList;
-
-  // isFinished: string;
+  @ViewChild(ShowBikesComponent)
+  private child : ShowBikesComponent
+ 
   filteredBikes: Bike[];
   usedfilter: boolean;
    selBike;
@@ -28,19 +29,25 @@ export class FilterBikesComponent implements OnInit {
   }
 
   onSubmit(event,form){
+   
     this.usedfilter = true;
     let elements = event.target.elements;
     this.filterService.filterBikes(elements, this.BikesList); 
+    
     // form.reset();
   }
 
   showFilteredBikes(){
     if(this.usedfilter){
       this.filteredBikes = this.selBike;
+      
      }
      else{
      this.filteredBikes = this.BikesList;
      }
+
+    
+    
    }
   
   SearchFunction(form){
@@ -59,6 +66,9 @@ export class FilterBikesComponent implements OnInit {
       console.log(bikes);
       this.selBike = bikes;
       this.showFilteredBikes();
+       if(this.child){
+        this.child.setPage(1);
+       }
     });
   }
 }

@@ -11,11 +11,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 const appRoutes: Routes = [
   {path: '', component: TypeOfBikesComponent},
-  {path: 'bikeFeatures', component: BikeFeaturesComponent},
-  {path: 'sizeCalculator', component: SizeCalculatorComponent},
-  {path: 'exploreBikes/:bikename', component: BikeInfoComponent},
-  {path: 'exploreBikes', component: ExploreBikesComponent},
-  {path: 'registerUser', component: RegisterUserComponent},
+  {path: 'bikefeatures', component: BikeFeaturesComponent},
+  {path: 'sizecalculator', component: SizeCalculatorComponent},
+  {path: 'explorebikes/:bikename', component: BikeInfoComponent},
+  {path: 'explorebikes', component: ExploreBikesComponent},
+  {path: 'registeruser', component: RegisterUserComponent},
   
   {path: '**', component: NotFoundComponent }
 

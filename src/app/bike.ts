@@ -17,6 +17,7 @@ export class Bike {
     weight;
     crankset;
     fork;
+    routeName;
 
 
     constructor(data) {
@@ -38,5 +39,6 @@ export class Bike {
         this.weight = data.Spec.Weight;
         this.crankset = data.Spec.crankset;
         this.fork = data.Spec.fork;
+        this.routeName = data.fullname.replace(/\s/g, '-').toLowerCase();
     }
 }

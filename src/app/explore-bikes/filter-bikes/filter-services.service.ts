@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Bike } from 'src/app/bike';
 import { BehaviorSubject } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,6 +11,7 @@ export class FilterServicesService {
   private filterSendBikes = new BehaviorSubject<Bike[]>(null);
   sendBikeList = this.filterSendBikes.asObservable();
   filteredBikes: Bike[];
+
 
 
   constructor() { }

@@ -1,8 +1,8 @@
-<div  class="col-lg-12 row" *ngIf="!selectedBike" >
-  <div *ngFor="let bike of bikeList"
+<div  class="col-lg-12 row"  >
+  <div *ngFor="let bike of pagedItems"
     class='col-sm-12 col-lg-4 bikes-render'>
    
-        <a  [routerLink]="['/exploreBikes', bike.fullName]"   >
+        <a  [routerLink]="['/explorebikes', bike.routeName]"   >
       
               <div (click)="onSelect(bike)">
           
@@ -16,34 +16,34 @@
       </a>
     </div>
 
-    <!-- <div>
+    <div>
         <div class="container">
             <div class="text-center">
                 
     
                
-                <div *ngFor="let item of pagedItems">{{item.name}}</div>
+                <!-- <div *ngFor="let item of pagedItems">{{item.fullName}}</div> -->
     
             
-                <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
-                    <li [ngClass]="{disabled:pager.currentPage === 1}">
-                        <a (click)="setPage(1)">First</a>
+                <ul class="pagination" *ngIf="pager.pages && pager.pages.length" class="pagination">
+                    <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+                        <a class="page-link" (click)="setPage(1)">First</a>
                     </li>
-                    <li [ngClass]="{disabled:pager.currentPage === 1}">
-                        <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+                    <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+                        <a class="page-link" (click)="setPage(pager.currentPage - 1)">Previous</a>
                     </li>
-                    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-                        <a (click)="setPage(page)">{{page}}</a>
+                    <li class="page-item" *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                        <a class="page-link" (click)="setPage(page)">{{page}}</a>
                     </li>
-                    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-                        <a (click)="setPage(pager.currentPage + 1)">Next</a>
+                    <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                        <a class="page-link" (click)="setPage(pager.currentPage + 1)">Next</a>
                     </li>
-                    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-                        <a (click)="setPage(pager.totalPages)">Last</a>
+                    <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                        <a class="page-link" (click)="setPage(pager.totalPages)">Last</a>
                     </li>
                 </ul>
             </div>
-        </div> -->
+        </div>
     <div *ngIf="bikeList.length == 0">
          Nothing Found!
     </div>

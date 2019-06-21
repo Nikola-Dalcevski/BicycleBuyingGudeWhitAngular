@@ -20,11 +20,14 @@ export class GetBikesService {
       
       let data = res.json().Bikes;
       this.bikess= [];
-      for(let bike of data){       
+      for(let bike of data){ 
+      
+     
        this.bikess.push(new Bike(bike));
        console.log("call on submit");
        
       }
+      console.log(this.bikess);
       this.isFinished= true;
       
       this.sendObjectWhitBikes = {bikes : this.bikess, isFinished : this.isFinished };

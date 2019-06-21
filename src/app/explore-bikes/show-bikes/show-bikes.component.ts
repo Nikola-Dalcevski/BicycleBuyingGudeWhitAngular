@@ -1,8 +1,8 @@
-import { Component, OnInit, Input, Output,} from '@angular/core';
+import { Component, OnInit, Input,} from '@angular/core';
 import { Bike } from 'src/app/bike';
 import { BikeInfoService } from '../bike-info/bike-info.service';
 import { PagerService } from '../../pager.service'
-import { fromEventPattern } from 'rxjs';
+
 
 @Component({
   selector: 'show-bikes',
@@ -10,25 +10,29 @@ import { fromEventPattern } from 'rxjs';
   styleUrls: ['./show-bikes.component.css']
 })
 export class ShowBikesComponent implements OnInit {
- @Input() bikeList;
+  @Input() bikeList;
   bikeInfo: Bike;
-  bikeLists;
+  bikes;
+  pagedItems;
 
-  constructor(private data: BikeInfoService, private pagerServic: PagerService) {}
+  constructor(private data: BikeInfoService, private pagerServic: PagerService) { console.log("test")};
     pager: any = {};
-    pagetItems;
+    
 
    onSelect(bike){
     this.data.changeBikeInfo(bike)
   }
 
-  setPage(page: number){
+   setPage(page: number){
     this.pager = this.pagerServic.getPager(this.bikeList.length, page);
-    this.pagetItems = this.bikeList.slice(this.pager.startIndex, this.pager.endIndex + 1);
-  }
+    this.pagedItems = this.bikeList.slice(this.pager.startIndex, this.pager.endIndex + 1);
+   }
 
   ngOnInit() {
+    
+
     this.setPage(1);
+    console.log("showBikesCalled");
      this.onSelect(null);
   }
 
