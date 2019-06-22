@@ -1,0 +1,43 @@
+<div class="logInText " *ngIf="!showUserMenu">
+            
+  
+
+
+
+<form #logInForm="ngForm"  class="form-inline my-2 my-lg-0 " (submit)="onSubmit(logInForm)">
+  <div class="form-group ">
+      <input ngModel email required #email="ngModel" name="email"
+          type="email" class="form-control-sm  mr-sm-2 " placeholder="Email">
+      <input ngModel id="pass" minlength="8" name="pass" #pass="ngModel" type="password" 
+          class="form-control-sm  mr-sm-2 " placeholder="Password" required> <br>
+      <button id="logBtn"  type="submit"   class="btn-primary ">Log in</button> 
+      
+  </div> 
+  
+
+
+</form>
+<a id="reg" class="register " routerLink="/registeruser">register</a>
+<span class="error" style="color: white">{{loginError}}</span>
+
+
+<!-- <span class="alert-sm alert-denger" *ngIf="email.touched && !email.valid"> -->
+          <!-- <span class="warning"  *ngIf="email.errors.required">
+              --You must enter email adress!
+          </span>
+          <span class="warning" *ngIf="email.errors.email">
+              --You entered invalid format of email!
+          </span>
+
+      </span>
+      <span class="alert-sm alert-denger" *ngIf="pass.touched && !pass.valid">
+          <span class="warning" *ngIf="pass.errors.minlength">
+              --Password must be min 8 characters!
+          </span>
+      </span> -->
+     <!-- <span *ngIf="loginError" class="alert-sm alert-denger warning ">{{loginError}} </span>  -->
+ </div> 
+
+<div class="test" *ngIf="showUserMenu"  >
+    <user-menu [name]="userName" (showwUserMenu)="changeShow($event)"></user-menu>
+</div>

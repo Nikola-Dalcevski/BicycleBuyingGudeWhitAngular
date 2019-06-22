@@ -1,0 +1,11 @@
+.warning {
+    color: white;
+    font-size: 10px;
+}
+
+.error{
+    float: right;
+    font-size: 12px;
+    color: white;
+  
+}

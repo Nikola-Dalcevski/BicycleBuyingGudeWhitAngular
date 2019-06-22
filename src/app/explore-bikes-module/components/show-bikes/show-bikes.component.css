@@ -1,0 +1,9 @@
+.bikeImage {
+    max-width: 200px;
+    max-height: 200px;
+
+} 
+.pagina{
+    position: relative;
+    top: 20px;
+}
