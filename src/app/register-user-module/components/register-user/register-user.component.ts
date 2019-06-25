@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {  AuthFirebaseService } from '../../../shared services/auth-firebase.service'
+import {  AuthFirebaseService } from '../../../shared-module/shared services/auth-firebase.service'
 import { TestBed } from '@angular/core/testing';
 import { AngularFireDatabase } from 'angularfire2/database';
 @Component({

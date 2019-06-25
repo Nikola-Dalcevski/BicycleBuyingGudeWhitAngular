@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnChanges, SimpleChange} from '@angular/core';
-import { Bike } from 'src/app/bike';
+import { Bike } from '../../../bike';
 import { BikeInfoService } from '../../services/bike-info.service';
 import { PagerService } from '../../services/pager.service';
 

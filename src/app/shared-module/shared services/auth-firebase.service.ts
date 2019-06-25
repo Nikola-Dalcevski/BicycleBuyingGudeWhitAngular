@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { Http } from '@angular/http';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { defineBase } from '@angular/core/src/render3';
-import { Bike } from '../bike';
+import { Bike } from '../../bike';
 
 
 @Injectable({

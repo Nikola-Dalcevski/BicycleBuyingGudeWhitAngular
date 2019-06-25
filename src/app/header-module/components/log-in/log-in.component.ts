@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthFirebaseService } from '../../../shared services/auth-firebase.service';
+import { AuthFirebaseService } from '../../../shared-module/shared services/auth-firebase.service';
 // import {  HttpUserBikesService } from "../../http-user-bikes.service"
 import { async } from 'q';
 @Component({

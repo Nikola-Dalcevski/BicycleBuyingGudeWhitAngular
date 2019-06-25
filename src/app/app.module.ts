@@ -11,7 +11,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { AuthFirebaseService } from './shared services/auth-firebase.service';
+
 
 import { ApRoutingModule } from './app-routing-module/app-routing.module';
 
@@ -21,7 +21,9 @@ import { BikeSizeModuleModule } from './bike-size-module/bike-size-module.module
 import { ExploreBikesModuleModule } from './explore-bikes-module/explore-bikes-module.module';
 import { HeaderModuleModule } from './header-module/header-module.module';
 import { RegisterUserModuleModule } from './register-user-module/register-user-module.module';
-import { HttpUserBikesService } from './shared services/http-user-bikes.service';
+
+import { SharedModuleModule } from './shared-module/shared-module.module';
+
 
 
 
@@ -52,15 +54,11 @@ import { HttpUserBikesService } from './shared services/http-user-bikes.service'
     ExploreBikesModuleModule,
     HeaderModuleModule,
     RegisterUserModuleModule,
+    SharedModuleModule
   
     
   ],
-  providers: [
-    AuthFirebaseService,
-    HttpUserBikesService,
-   
-
-  ],
+  
  
   bootstrap: [AppComponent]
 })

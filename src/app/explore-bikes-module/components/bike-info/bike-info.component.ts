@@ -3,7 +3,7 @@ import { Bike } from '../../../bike';
 import { ShowBikesComponent } from '../show-bikes/show-bikes.component';
 import { BikeInfoService } from '../../services/bike-info.service';
 import { AngularFireDatabase} from 'angularfire2/database';
-import { AuthFirebaseService } from 'src/app/shared services/auth-firebase.service';
+import { AuthFirebaseService } from 'src/app/shared-module/shared services/auth-firebase.service';
 
 
 @Component({

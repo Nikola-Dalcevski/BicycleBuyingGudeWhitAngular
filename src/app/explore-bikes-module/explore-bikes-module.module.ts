@@ -6,6 +6,7 @@ import { FilterBikesComponent } from './components/filter-bikes/filter-bikes.com
 import { ShowBikesComponent } from './components/show-bikes/show-bikes.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { SharedModuleModule } from '../shared-module/shared-module.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    SharedModuleModule
   ]
 })
 export class ExploreBikesModuleModule { }

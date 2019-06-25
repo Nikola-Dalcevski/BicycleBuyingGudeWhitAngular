@@ -1,9 +1,50 @@
 .bikeImage {
-    max-width: 200px;
+    max-width: 195px;
     max-height: 200px;
 
 } 
+
+.bikes-render{
+  
+    font-size: 12px;
+    padding: 5px;
+    /* background-color: lightgray; */
+    
+
+}
+.showBike{
+ background-color: lightgray;
+ border: 1px solid black;
+ margin-bottom: 10px;
+}
+
+.showBike :hover{
+    background-color: darkgray;
+    text-decoration: none;
+    
+}
+/* pagination always on bottom */
+   .clear{
+       width: 700px;
+       
+   }
+
+   .text-center{
+       
+       text-align: center;
+       width: 100%;
+   }
+
+   ul{
+       margin-left: 18%;
+   }
+
+
+   /* .info{
+      
+       background-color: lightgray;
+   } */
+
 .pagina{
-    position: relative;
-    top: 20px;
+    cursor: pointer;
 }

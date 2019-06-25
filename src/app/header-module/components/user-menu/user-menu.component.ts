@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { AuthFirebaseService } from 'src/app/shared services/auth-firebase.service';
+import { AuthFirebaseService } from 'src/app/shared-module/shared services/auth-firebase.service';
 import { $ } from 'protractor';
 
 @Component({
