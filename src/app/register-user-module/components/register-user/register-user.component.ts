@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {  AuthFirebaseService } from '../../../shared-module/shared services/auth-firebase.service'
-import { TestBed } from '@angular/core/testing';
+import {  AuthFirebaseService } from '../../../shared-module/shared services/auth-firebase.service';
+import {Router} from "@angular/router";
 import { AngularFireDatabase } from 'angularfire2/database';
 @Component({
   selector: 'app-register-user',
@@ -16,9 +16,11 @@ export class RegisterUserComponent implements OnInit {
    errorMessage: string;
    confirmPassword: string;
 
-  constructor(private authService: AuthFirebaseService, private db: AngularFireDatabase) { }
+  constructor(private authService: AuthFirebaseService,
+     private db: AngularFireDatabase,
+     private router: Router) { }
   
-  async onSubmit(event,eve){
+    async onSubmit(event,eve){
     eve.preventDefault();
 
     console.log(event.value);
@@ -29,14 +31,27 @@ export class RegisterUserComponent implements OnInit {
 
     await this.authService.signup(event.value.email,event.value.regPassword, event.value.name, event.value.confirm)
    
-    this.errorMessage = this.authService.errorMessage
- 
+    console.log(this.errorMessage);
+    this.errorMessage =this.authService.errorMessage;
+    console.log(this.errorMessage);
+
+
+   
+    // this.errorMessage = this.authService.showErrorMessage();
+    
+    // setTimeout(() => {
+    //    this.router.navigate(['']);
+    // }, 2000);
     
   }
 
 
+
+
   ngOnInit() {
-   
+    this.errorMessage = "";
+    
+  
   }
 
 

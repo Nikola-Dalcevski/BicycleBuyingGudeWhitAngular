@@ -40,7 +40,7 @@
                         <span class="col-lg-6 ">Enter your Height (cm)</span>
                         <select  class="col-lg-5 offset-lg-5 form-contol " ngModel #model="ngModel"  name="height" (change)="changeHeight(model)" required >
                              <option  disabled value="">Choose your height</option> 
-                            <option    *ngFor="let option of heightSizes" [value]="option" >{{option}}</option>
+                            <option  *ngFor="let option of heightSizes" [value]="option" >{{option}}</option>
                         </select>
                     </div>
                     <div class="col-lg-12">
@@ -56,8 +56,9 @@
                 
                 
                 
-                    <div>
-                        <input type="submit" class="btn-primary">
+                    <div class="button">
+                        <input type="submit" class="btn-primary btn-lg" value="Calculate">
+                       
                         <!-- <button type="submit"  id="calculate">Calculate</button> -->
                   
                     </div>
@@ -65,11 +66,20 @@
                 </form>
       </div>
     
-    <div class="col-lg-6" *ngIf="bikeSizes.length">
-       <p>Your Mountain and Hibride bike tube size is {{ bikeSizes[0].MountHibrid.inches }}"</p>
-       <p>Your Mountain and Hibride bike size is {{bikeSizes[0].MountHibrid.size}}</p>
-       <p>Your Road bike size is {{bikeSizes[0].Road.inches}}"</p>
-       <p>Your Road bike size is {{bikeSizes[0].Road.size}}</p>
+    <div class="col-lg-6 showSize" >
+        <div *ngIf="bikeSizes.length">
+                <p>Your Mountain and Hybrid bike tube size is {{ bikeSizes[0].MountHibrid.inches }}"</p>
+                <p>Your Mountain and Hybrid bike size is {{bikeSizes[0].MountHibrid.size}}</p>
+                <p>Your Road bike size is {{bikeSizes[0].Road.inches}}"</p>
+                <p>Your Road bike size is {{bikeSizes[0].Road.size}}</p>
+              
+                        <input type="submit" class="btn-primary btn-sm" value="Add">
+                       
+                        <!-- <button type="submit"  id="calculate">Calculate</button> -->
+                  
+                 
+        </div>
+      
     </div>
     </div>
     

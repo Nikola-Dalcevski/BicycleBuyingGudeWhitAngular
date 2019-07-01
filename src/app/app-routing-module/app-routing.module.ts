@@ -7,20 +7,17 @@ import { SizeCalculatorComponent } from '../bike-size-module/components/size-cal
 import { BikeInfoComponent } from '../explore-bikes-module/components/bike-info/bike-info.component';
 import { ExploreBikesComponent } from '../explore-bikes-module/components/explore-bikes/explore-bikes.component';
 import { RegisterUserComponent } from '../register-user-module/components/register-user/register-user.component';
-import { NotFoundComponent } from '../not-found/not-found.component';
+import { NotFoundComponent } from '../shared-module/components/not-found/not-found.component';
+import { UserFavoritebikesComponent } from '../header-module/components/user-favoritebikes/user-favoritebikes.component';
 
 const appRoutes: Routes = [
   {path: '', component: TypeOfBikesComponent},
   {path: 'bikefeatures', component: BikeFeaturesComponent},
   {path: 'sizecalculator', component: SizeCalculatorComponent},
-
   {path: 'explorebikes', component: ExploreBikesComponent },
-
-   {path: 'explorebikes/:bikename',component: BikeInfoComponent},
- 
-  
-  {path: 'registeruser', component: RegisterUserComponent},
-  
+  {path: 'explorebikes/:bikename',component: BikeInfoComponent},
+  {path: 'registeruser', component: RegisterUserComponent},  
+  {path: 'favoritesBikes', component: UserFavoritebikesComponent},
   {path: '**', component: NotFoundComponent }
 
 ]

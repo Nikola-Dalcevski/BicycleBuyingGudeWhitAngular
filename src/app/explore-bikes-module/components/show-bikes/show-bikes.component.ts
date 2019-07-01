@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, OnChanges, SimpleChange} from '@angular/core';
-import { Bike } from '../../../bike';
-import { BikeInfoService } from '../../services/bike-info.service';
+import { Bike } from '../../../shared-module/Models/bike';
 import { PagerService } from '../../services/pager.service';
 
 
@@ -15,13 +14,11 @@ export class ShowBikesComponent implements OnInit {
   bikes;
   pagedItems;
 
-  constructor(private data: BikeInfoService, private pagerServic: PagerService) { console.log("test")};
+  constructor( private pagerServic: PagerService) { console.log("test")};
     pager: any = {};
     
  
-   onSelect(bike){
-    this.data.changeBikeInfo(bike)
-  }
+
 
    setPage(page: number){
     this.pager = this.pagerServic.getPager(this.bikeList.length, page);
@@ -40,7 +37,7 @@ export class ShowBikesComponent implements OnInit {
   ngOnInit() {
      console.log("show")
     this.setPage(1);
-     this.onSelect(null);
+    
   }
 
 }

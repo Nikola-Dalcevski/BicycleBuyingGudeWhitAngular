@@ -21,6 +21,7 @@ label{
     color: #fff;
 }
 .main-center{
+    width: 100%;
     position: relative;
     text-align: center;
  	margin-top: 30px;
@@ -50,8 +51,11 @@ label{
 
     } 
     .container{
-        max-width: 100%;
+        width: 100%;
+        
         background-color: rgba(0, 0, 0, 0.3);
         
         text-align: center;
     }
+
+    

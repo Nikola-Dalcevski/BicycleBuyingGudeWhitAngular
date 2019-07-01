@@ -5,11 +5,15 @@
     background-attachment: fixed;
    
 } */
+
+.main{
+    position: relative;
+}
 .container{
     max-width: 70%;
      /* background-color: #fff;  */
     text-align: center;
-    height: 900px;
+     min-height: 700px; 
 }
    
 

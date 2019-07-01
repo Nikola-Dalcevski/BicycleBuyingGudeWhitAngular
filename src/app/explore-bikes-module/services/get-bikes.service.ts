@@ -1,14 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Bike } from '../../bike';
+import { Bike } from '../../shared-module/Models/bike';
 import { BehaviorSubject } from 'rxjs';
 
+
+interface ISendBikes {
+  bikes: Bike[],
+  isfinished: string
+ };
 
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class GetBikesService {
-  private Bikes = new BehaviorSubject<{bikes:[],isfinished: string}>(null);
+  private Bikes = new BehaviorSubject<ISendBikes>(null);
   sendBikes = this.Bikes.asObservable();
    sendObjectWhitBikes;
    bikess: Bike[];

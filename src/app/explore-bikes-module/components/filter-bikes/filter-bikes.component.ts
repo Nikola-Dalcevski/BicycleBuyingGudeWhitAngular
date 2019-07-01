@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { Bike } from 'src/app/bike';
+import { Bike } from 'src/app/shared-module/Models/bike';
 import { FilterServicesService } from '../../services/filter-services.service';
 import {  ShowBikesComponent } from '../show-bikes/show-bikes.component';
 // import { showBikesComponent } from "../show-bikes/show-bikes.component"

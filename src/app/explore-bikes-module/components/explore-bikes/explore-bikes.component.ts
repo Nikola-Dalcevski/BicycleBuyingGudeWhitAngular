@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, } from '@angular/core';
-import { Bike } from '../../../bike';
+import { Bike } from '../../../shared-module/Models/bike';
 import {  GetBikesService } from '../../services/get-bikes.service';
 import { Http } from '@angular/http';
 

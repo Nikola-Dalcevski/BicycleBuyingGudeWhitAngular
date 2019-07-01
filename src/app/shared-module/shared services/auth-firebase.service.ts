@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { Http } from '@angular/http';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { defineBase } from '@angular/core/src/render3';
-import { Bike } from '../../bike';
+import { Bike } from '../Models/bike';
 
 
 @Injectable({
@@ -56,6 +56,7 @@ export class AuthFirebaseService {
       })
       .catch(err => {
         this.errorMessage = err;
+        console.log(this.errorMessage);
       })    
      }
    
@@ -64,6 +65,8 @@ export class AuthFirebaseService {
       this.errorMessage = err; 
       console.log(this.errorMessage);
     }
+
+    
   }
 
 
@@ -92,6 +95,10 @@ export class AuthFirebaseService {
     console.log(this.db.database);
   }
 
+
+  showErrorMessage(){
+    return this.errorMessage;
+  }
 
   logout() {
     this.firebaseAuth

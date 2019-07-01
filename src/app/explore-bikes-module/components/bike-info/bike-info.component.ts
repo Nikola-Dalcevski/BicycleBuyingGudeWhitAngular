@@ -1,10 +1,11 @@
 import { Component, OnInit, Input} from '@angular/core';
-import { Bike } from '../../../bike';
+import { Bike } from '../../../shared-module/Models/bike';
 import { ShowBikesComponent } from '../show-bikes/show-bikes.component';
 import { BikeInfoService } from '../../services/bike-info.service';
 import { AngularFireDatabase} from 'angularfire2/database';
 import { AuthFirebaseService } from 'src/app/shared-module/shared services/auth-firebase.service';
-
+import { ActivatedRoute } from '@angular/router';
+import { GetBikesService } from '../../services/get-bikes.service';
 
 @Component({
   selector: 'bike-info',
@@ -14,11 +15,16 @@ import { AuthFirebaseService } from 'src/app/shared-module/shared services/auth-
 })
 
 export class BikeInfoComponent implements OnInit {
-   @Input() bike: Bike;
-   bikeInfo: Bike;
+   bike: Bike;
+  //  bikeInfo: Bike;
   
    userId;
-  constructor(private data: BikeInfoService,private db: AngularFireDatabase, private authService: AuthFirebaseService) { }
+
+  constructor(
+     private db: AngularFireDatabase,
+     private authService: AuthFirebaseService,
+     private getBikes: GetBikesService,
+     private activatedRoute: ActivatedRoute) { }
 
 
    addBike(){
@@ -33,8 +39,16 @@ export class BikeInfoComponent implements OnInit {
   ngOnInit() {
      
      
-    console.log("info")
-    this.data.currentBikeInfo.subscribe(bikeInfo => this.bike = bikeInfo);
+    this.activatedRoute.params.subscribe(param =>
+      {
+        this.getBikes.sendBikes.subscribe(bikes =>
+        {
+          if (bikes)
+            this.bike = bikes.bikes.find(bike => bike.routeName === param.bikename);
+        })
+      })
+    // console.log("info")
+    // this.data.currentBikeInfo.subscribe(bikeInfo => this.bike = bikeInfo);
    
 
     // this.bike = this.bikeInfo;
