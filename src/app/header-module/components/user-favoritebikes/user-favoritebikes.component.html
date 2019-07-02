@@ -1,3 +1,25 @@
-<p>
-  user-favoritebikes works!
-</p>
+
+<div class="container ">
+
+  <div class="size">
+     Your Bike Size
+     <div *ngIf="userBikes"  #myElement  (loaddtart)="myElement.innerHTML = ''" >
+        <p>Your Mountain and Hybrid bike tube size is {{ userBikes.sizes.MountHibrid.inches }}</p>
+        <p>Your Mountain and Hybrid bike size is {{userBikes.sizes.MountHibrid.size}}</p>
+        <p>Your Road bike size is {{userBikes.sizes.Road.inches}}</p>
+        <p>Your Road bike size is {{userBikes.sizes.Road.size}}</p>
+      </div>
+  </div>
+  
+  <div class="showFav" id="fav">
+    Your fvorite bikes:
+      <div *ngFor="let bike of linkBikes">
+        <a  routerLink="/explorebikes/{{bike}}" >
+          {{bike}}
+        </a>
+        
+        </div>
+  </div>
+ 
+</div>
+

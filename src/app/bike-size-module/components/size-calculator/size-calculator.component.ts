@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BikeSizeCalculatorService } from '../../Services/bike-size-calculator.service';
 import { BikeSizeInseamCalculatorService } from '../../Services/bike-size-inseam-calculator.service';
+import { AuthFirebaseService } from 'src/app/shared-module/shared services/auth-firebase.service';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 
 @Component({
@@ -15,16 +17,14 @@ export class SizeCalculatorComponent implements OnInit {
    minHeight = 150;
    maxHeight = 192;
    height;
+   userId;
   
  
-  constructor(private data: BikeSizeInseamCalculatorService, private bikeData: BikeSizeCalculatorService) {
-      this.inseamSizes = [];
-       this.heightSizes = new Array();
-       this.calculateSizes();
-       console.log("constructor called");
-      
-      
-   }
+  constructor(private data: BikeSizeInseamCalculatorService,
+              private bikeData: BikeSizeCalculatorService,
+              private authService: AuthFirebaseService,
+              private db: AngularFireDatabase
+     ) { }
 
    calculateSizes(){
     for(this.minHeight;this.minHeight <= this.maxHeight; this.minHeight++){
@@ -32,7 +32,14 @@ export class SizeCalculatorComponent implements OnInit {
     }
    }
 
+   addBike(){
+    if(this.authService.userId){
+     this.userId = this.authService.userId;
+      this.db.list(`/${this.userId}/sizes`).set("size", this.bikeSizes);
    
+    }
+     
+  }
 
    changeHeight(model){
      
@@ -47,12 +54,18 @@ export class SizeCalculatorComponent implements OnInit {
      let userHeight = form.value.height
      let userInseam = form.value.inseam
      form.reset();
-     this.bikeData.calculateSizeBike(userHeight,userInseam);
+     if(userHeight && userInseam){
+      this.bikeData.calculateSizeBike(userHeight,userInseam);
+     }
+  
     
 }
 
   ngOnInit() {
-    
+    this.inseamSizes = [];
+       this.heightSizes = new Array();
+       this.calculateSizes();
+       console.log("constructor called");
 
     this.data.sendSizeInseam.subscribe(x => this.inseamSizes = x);
     this.bikeData.sendBikeSize.subscribe(x => {

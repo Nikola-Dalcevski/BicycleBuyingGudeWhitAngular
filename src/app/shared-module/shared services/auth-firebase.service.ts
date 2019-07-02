@@ -50,7 +50,10 @@ export class AuthFirebaseService {
          
           this.db.database.ref(user.uid).set({
             bikes: [""],
+            sizes: {size: ""},
           });
+          //new add for sizes 
+        
           
         })
       })

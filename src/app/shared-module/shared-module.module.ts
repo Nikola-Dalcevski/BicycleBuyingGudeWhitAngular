@@ -5,6 +5,7 @@ import { HttpUserBikesService } from './shared services/http-user-bikes.service'
 import { ModuleWithProviders } from '@angular/compiler/src/core';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { BackgroundService } from './shared services/background.service';
 
 
 @NgModule({
@@ -18,11 +19,13 @@ import { FooterComponent } from './components/footer/footer.component';
   providers: [
     AuthFirebaseService,
     HttpUserBikesService,
+    BackgroundService
 
 
   ],
   exports: [
      FooterComponent,
+  
   ],
 
 })

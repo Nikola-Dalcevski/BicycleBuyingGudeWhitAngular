@@ -47,7 +47,7 @@
             
                         <span class="col-lg-6 ">Enter your leg inseam (cm)</span>
                 
-                         <select class="col-lg-5 offset-lg-5" ngModel name="inseam" id="selectInseam" required>
+                         <select class="col-lg-5 offset-lg-5" ngModel name="inseam" id="selectInseam" required >
                              <option  value="">Choose your inseam height</option>
                                 <option    *ngFor="let option of inseamSizes"  >{{option}}</option>
                          </select>
@@ -68,13 +68,13 @@
     
     <div class="col-lg-6 showSize" >
         <div *ngIf="bikeSizes.length">
-                <p>Your Mountain and Hybrid bike tube size is {{ bikeSizes[0].MountHibrid.inches }}"</p>
-                <p>Your Mountain and Hybrid bike size is {{bikeSizes[0].MountHibrid.size}}</p>
-                <p>Your Road bike size is {{bikeSizes[0].Road.inches}}"</p>
-                <p>Your Road bike size is {{bikeSizes[0].Road.size}}</p>
+                <p> - Your Mountain and Hybrid bike tube size is {{ bikeSizes[0].MountHibrid.inches }}</p>
+                <p> - Your Mountain and Hybrid bike size is {{bikeSizes[0].MountHibrid.size}}</p>
+                <p> - Your Road bike size is {{bikeSizes[0].Road.inches}}</p>
+                <p> - Your Road bike size is {{bikeSizes[0].Road.size}}</p>
               
-                        <input type="submit" class="btn-primary btn-sm" value="Add">
-                       
+                        <!-- <input type="submit" class="btn-primary btn-sm" value="Add"> -->
+                       <button type="button" class="btn-primary btn-sm" (click)=" addBike()">Add</button>
                         <!-- <button type="submit"  id="calculate">Calculate</button> -->
                   
                  
