@@ -40,7 +40,7 @@ export class RegisterUserComponent implements OnInit {
     if(!this.errorMessage){
       this.errorMessage ="You are seccesfuly registered";
        setTimeout(() => {
-         
+         this.router.navigate(['/'])
        }, 2000);
     }
     console.log(this.errorMessage);
@@ -58,8 +58,11 @@ export class RegisterUserComponent implements OnInit {
     this.errorMessage = "";
     this.authService.userSend.subscribe(x => {
       console.log(x);
-      this.errorMessage = x.error
-      console.log(this.errorMessage);   
+      if(x){
+        this.errorMessage = x.error
+      }
+     
+    
      });
   
   }
