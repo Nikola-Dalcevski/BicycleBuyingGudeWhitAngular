@@ -12,8 +12,10 @@
     background-color: lightgrey;
     margin: auto;
     margin-top: 0px;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     padding-top: 30px;
+    padding-left: 20px;
+    text-align: left;
     
     
 }
@@ -24,4 +26,20 @@
     background-color: lightgrey;
     margin: auto;
     margin-top: 0px;
+
+}
+
+img {
+    margin: 5px;
+}
+
+button{
+    width: 600px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+a {
+    text-decoration: none;
+    color: black;
+    line-height: 40px;
 }

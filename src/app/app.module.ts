@@ -18,9 +18,18 @@ import { SharedModuleModule } from './shared-module/shared-module.module';
 
 
 
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
+
+   
+
+ 
 
   ],
   imports: [
@@ -37,7 +46,9 @@ import { SharedModuleModule } from './shared-module/shared-module.module';
     ExploreBikesModuleModule,
     HeaderModuleModule,
     RegisterUserModuleModule,
-    SharedModuleModule.forRoot()  
+    SharedModuleModule.forRoot(),
+
+
   ],
   
  

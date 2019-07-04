@@ -7,20 +7,33 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { UserFavoritebikesComponent } from './components/user-favoritebikes/user-favoritebikes.component';
 
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
+
+
+
 @NgModule({
   declarations: [
     HeaderComponent,
     LogInComponent,
     UserMenuComponent,
-    UserFavoritebikesComponent
+    UserFavoritebikesComponent,
+
+  
+
   ],
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    MDBBootstrapModule.forRoot()
+
+    
   ],
   exports: [
     HeaderComponent,
+
+   
     
 ],
 

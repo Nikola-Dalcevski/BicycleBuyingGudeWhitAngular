@@ -9,7 +9,8 @@ import { HttpUserBikesService } from 'src/app/shared-module/shared services/http
 @Component({
   selector: 'app-user-favoritebikes',
   templateUrl: './user-favoritebikes.component.html',
-  styleUrls: ['./user-favoritebikes.component.css']
+  styleUrls: ['./user-favoritebikes.component.css'],
+  
 })
 export class UserFavoritebikesComponent implements OnInit {
   

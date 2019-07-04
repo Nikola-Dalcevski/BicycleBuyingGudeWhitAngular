@@ -16,7 +16,7 @@ li{
 }
 
 select{
-    margin-left: 60px;
+    margin: auto;
     min-width: 300px;
 }
 
@@ -32,3 +32,5 @@ select{
     background-color: lightblue;
     margin-bottom: 20px;
 }
+
+
