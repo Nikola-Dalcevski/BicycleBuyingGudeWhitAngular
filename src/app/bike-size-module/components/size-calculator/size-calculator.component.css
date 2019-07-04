@@ -27,8 +27,8 @@ select{
 
 .showSize{
     width: 400px;
-    height: 200px;
-    margin-top: 100px; 
+    height: 250px;
+    margin-top: 60px; 
     background-color: lightblue;
     margin-bottom: 20px;
 }

@@ -16,8 +16,8 @@ import { GetBikesService } from '../../services/get-bikes.service';
 
 export class BikeInfoComponent implements OnInit {
    bike: Bike;
-  //  bikeInfo: Bike;
   
+   imageUrl = "../../assets/Images/image1.jpg" ;
    userId;
 
   constructor(
@@ -31,9 +31,11 @@ export class BikeInfoComponent implements OnInit {
      if(this.authService.userId){
       this.userId = this.authService.userId;
        this.db.list(`/${this.userId}/bikes`).push(this.bike.fullName);
-    
-     }
-      
+    }}
+
+
+   chageImage(c){
+     this.imageUrl = `../../assets/Images/image${c}.jpg`
    }
   
   ngOnInit() {

@@ -13,6 +13,7 @@ export class ShowBikesComponent implements OnInit {
   bikeInfo: Bike;
   bikes;
   pagedItems;
+  number =1;
 
   constructor( private pagerServic: PagerService) { console.log("test")};
     pager: any = {};

@@ -8,6 +8,10 @@ import { AngularFireDatabase } from 'angularfire2/database';
   styleUrls: ['./register-user.component.css'],
   // providers: [AuthFirebaseService]
 })
+
+
+
+
 export class RegisterUserComponent implements OnInit {
    email: string;
    password: string;
@@ -32,16 +36,18 @@ export class RegisterUserComponent implements OnInit {
     await this.authService.signup(event.value.email,event.value.regPassword, event.value.name, event.value.confirm)
    
     console.log(this.errorMessage);
-    this.errorMessage =this.authService.errorMessage;
+    this.errorMessage = this.authService.errorMessage;
+    if(!this.errorMessage){
+      this.errorMessage ="You are seccesfuly registered";
+       setTimeout(() => {
+         
+       }, 2000);
+    }
     console.log(this.errorMessage);
 
-
-   
-    // this.errorMessage = this.authService.showErrorMessage();
     
-    // setTimeout(() => {
-    //    this.router.navigate(['']);
-    // }, 2000);
+   
+
     
   }
 
@@ -50,7 +56,11 @@ export class RegisterUserComponent implements OnInit {
 
   ngOnInit() {
     this.errorMessage = "";
-    
+    this.authService.userSend.subscribe(x => {
+      console.log(x);
+      this.errorMessage = x.error
+      console.log(this.errorMessage);   
+     });
   
   }
 

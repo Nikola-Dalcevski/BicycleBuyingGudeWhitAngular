@@ -10,11 +10,16 @@ import { defineBase } from '@angular/core/src/render3';
 import { Bike } from '../Models/bike';
 
 
+interface ISendUser {
+  bikeuser: string,
+  error: string;
+ };
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthFirebaseService {
-  private user = new BehaviorSubject<string>(null);
+  user = new BehaviorSubject<ISendUser>(null);
   userSend = this.user.asObservable();
 
 
@@ -41,7 +46,11 @@ export class AuthFirebaseService {
       .auth
       .createUserWithEmailAndPassword(email, password)
       .then(value => {
-        this.errorMessage = "You are seccesfuly registered"
+        
+        this.user.next({bikeuser : null, error :  "You are seccesfuly registered"});
+         
+      
+       
        this.firebaseAuth.user.subscribe(user => user.updateProfile({displayName : name}));
       })
       .then(() => {
@@ -80,7 +89,7 @@ export class AuthFirebaseService {
       .then(value => {
       console.log(value.user.displayName);
  
-       this.user.next(value.user.displayName);
+       this.user.next({bikeuser : value.user.displayName, error : null});
        //for add bike
        this.userId = value.user.uid  
         

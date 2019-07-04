@@ -26,7 +26,7 @@ export class AppComponent {
     
     this.bgc.sendImage.subscribe(x =>{
       if(!x){
-        x =1;
+        x = 1;
       }
       this.imgUrl = `../assets/Images/background${x}.jpg`;
     });

@@ -41,8 +41,9 @@ export class LogInComponent implements OnInit {
 
     this.authService.userSend.subscribe(x => {
     
+      console.log(x);
       this.showUserMenu = x ? true : false;
-     this.userName = x;
+      x ? this.userName = x.bikeuser : false;
       
     })
 

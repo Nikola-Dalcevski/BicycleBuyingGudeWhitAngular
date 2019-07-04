@@ -3,7 +3,7 @@
 
   <div class="size">
      Your Bike Size
-     <div *ngIf="userBikes"  #myElement  (loaddtart)="myElement.innerHTML = ''" >
+     <div *ngIf="userBikes" >
         <p>Your Mountain and Hybrid bike tube size is {{ userBikes.sizes.MountHibrid.inches }}</p>
         <p>Your Mountain and Hybrid bike size is {{userBikes.sizes.MountHibrid.size}}</p>
         <p>Your Road bike size is {{userBikes.sizes.Road.inches}}</p>

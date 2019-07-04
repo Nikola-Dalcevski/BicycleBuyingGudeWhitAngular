@@ -1,14 +1,14 @@
 <div *ngIf="bike" class="container">
     <div class="row">
-        <div class="col-lg-6 ">
-            <div class="row">
-                <img id="main-img-bike" class="col-lg-12" src="../../assets/Images/image1.jpg" alt="bike image">
+        <div class="col-lg-6 Info">
+            <div class="row myrow Info">
+                <img id="main-img-bike" class="col-lg-12" src={{imageUrl}} alt="bike image">
                 <div class="col-lg-12  ">
                     <div class="row no-gutters tumbs">
-                        <img class="col-lg-3 tumb" src="../../assets/Images/image1.jpg" alt="">
-                        <img class="col-lg-3 tumb" src="../../assets/Images/image2.jpg" alt="">
-                        <img class="col-lg-3 tumb" src="../../assets/Images/image3.jpg" alt="">
-                        <img class="col-lg-3 tumb" src="../../assets/Images/image4.jpg" alt="">
+                        <img class="col-lg-3 tumb" src="../../assets/Images/image1.jpg" alt="BikeImage" (click)="chageImage(1)">
+                        <img class="col-lg-3 tumb" src="../../assets/Images/image2.jpg" alt="" (click)="chageImage(2)">
+                        <img class="col-lg-3 tumb" src="../../assets/Images/image3.jpg" alt="" (click)="chageImage(3)">
+                        <img class="col-lg-3 tumb" src="../../assets/Images/image4.jpg" alt="" (click)="chageImage(4)">
                     </div>
 
                 </div>
@@ -19,8 +19,8 @@
 
         </div>
 
-        <div class="col-lg-6">
-            <div>
+        <div class="col-lg-6 Info">
+            <div class="header">
                 <h1>{{bike.brand}}</h1>
                 <h2>{{bike.fullName}}</h2>
             </div>
