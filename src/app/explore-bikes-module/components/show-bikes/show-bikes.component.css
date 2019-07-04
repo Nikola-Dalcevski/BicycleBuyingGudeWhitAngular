@@ -7,20 +7,24 @@
 .bikes-render{
   
     font-size: 12px;
+    
     padding: 5px;
-    /* background-color: lightgray; */
+   
     
 
 }
 .showBike{
- background-color: lightgray;
- /* border: 1px solid black; */
+ background-color: lightskyblue;
+ 
  margin-bottom: 10px;
+
 }
 
 .showBike :hover{
-    background-color: darkgray;
+    opacity: 0.8;
     text-decoration: none;
+   
+   
     
 }
 /* pagination always on bottom */
@@ -41,14 +45,26 @@
 
    button{
        padding: 0px;
-       border: 1px solid black;
+       /* border: 2px solid black; */
    }
 
-   /* .info{
-      
-       background-color: lightgray;
-   } */
+
 
 .pagina{
     cursor: pointer;
 }
+.info {
+    color: blue;
+   
+   
+    text-align: center;
+    font-size: 15px;
+    padding-top: 5px;
+ 
+}
+
+.info > p   {
+    margin-bottom: 0px;
+ 
+}
+

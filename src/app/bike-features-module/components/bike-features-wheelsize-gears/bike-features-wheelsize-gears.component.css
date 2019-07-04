@@ -1,6 +1,37 @@
 h3, h1, h2 {
     font-weight: bold;
     margin-bottom: 10px;
+  
+}
+h3 {
+    padding: 20px;
 }
 
 
+.test {
+    border-radius: 20px;
+    width: 100%;
+    height: auto;
+    
+}
+
+iframe {
+    margin: auto;
+    border-radius: 15px;
+    width: 560px;
+    height: 315px;
+   
+}
+
+article > p {
+    text-align: left;
+}
+
+
+@media only screen and (max-width: 900px)  {
+    
+    iframe {
+        width: 80%;
+        height: auto;
+    }
+}
