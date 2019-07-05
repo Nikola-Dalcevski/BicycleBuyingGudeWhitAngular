@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BikeFeaturesComponent implements OnInit {
 
-  constructor() {console.log("constructor bikefeatures") }
+  constructor() { }
 
   ngOnInit() {
     

@@ -4,7 +4,6 @@ import { GetBikesService } from '../../services/get-bikes.service';
 
 
 
-
 @Component({
   selector: 'app-explore-bikes',
   templateUrl: './explore-bikes.component.html',

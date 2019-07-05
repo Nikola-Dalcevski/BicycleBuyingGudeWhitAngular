@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-
 import { AuthFirebaseService } from 'src/app/shared-module/shared services/auth-firebase.service';
-import { $ } from 'protractor';
+
 
 @Component({
   selector: 'user-menu',
@@ -9,34 +8,27 @@ import { $ } from 'protractor';
   styleUrls: ['./user-menu.component.css']
 })
 export class UserMenuComponent implements OnInit {
-  
+
   @Input() name: string;
   @Output() showwUserMenu = new EventEmitter<boolean>();
   showHideUserMenu: boolean = true;
-  constructor( private authService: AuthFirebaseService) { }
+  constructor(private authService: AuthFirebaseService) { }
 
-  dropDown(){
-    
+  dropDown() {
     this.showHideUserMenu = !this.showHideUserMenu;
-    
   }
 
-  log(model){
+  log(model) {
     console.log(model);
     event.preventDefault();
-  
-     
-      this.authService.logout();
-     
-      console.log("logout");
-      this.showwUserMenu.emit(false);
-   
-    
+    this.authService.logout();
+    console.log("logout");
+    this.showwUserMenu.emit(false);
   }
 
 
   ngOnInit() {
-    
+
   }
 
 }

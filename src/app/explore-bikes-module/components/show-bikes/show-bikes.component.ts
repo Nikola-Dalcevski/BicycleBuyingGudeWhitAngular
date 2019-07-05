@@ -15,11 +15,9 @@ export class ShowBikesComponent implements OnInit {
   pagedItems;
   number =1;
 
-  constructor( private pagerServic: PagerService) { console.log("test")};
+  constructor( private pagerServic: PagerService) { };
     pager: any = {};
     
- 
-
 
    setPage(page: number){
     this.pager = this.pagerServic.getPager(this.bikeList.length, page);
@@ -36,9 +34,7 @@ export class ShowBikesComponent implements OnInit {
 
 
   ngOnInit() {
-     console.log("show")
-    this.setPage(1);
-    
+    this.setPage(1);  
   }
 
 }

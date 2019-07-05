@@ -1,37 +1,54 @@
-
 <div class="container ">
- 
 
-  <img src="../../../../assets/Images/logo1.png"   alt="cube logo"> <br>
-  <img src="../../../../assets/Images/cube-logo1.jpg" height= 100px; alt="cube logo">
-  <img src="../../../../assets/Images/trek_bicycle.png" height= 100px; alt="cube logo">
-  <img src="../../../../assets/Images/scott_logo1.jpg" height= 100px; alt="cube logo">
-  <img src="../../../../assets/Images/brand1.jpg" height= 100px; alt="cube logo">
+
+  <img src="../../../../assets/Images/logo1.png" alt="cube logo"> <br>
+  <img src="../../../../assets/Images/cube-logo1.jpg" height=100px; alt="cube logo">
+  <img src="../../../../assets/Images/trek_bicycle.png" height=100px; alt="cube logo">
+  <img src="../../../../assets/Images/scott_logo1.jpg" height=100px; alt="cube logo">
+  <img src="../../../../assets/Images/brand1.jpg" height=100px; alt="cube logo">
   <div class="size">
     <h3> Your Bikes Size:</h3>
-     <div *ngIf="userBikes" >
-        <p>Your Mountain and Hybrid bike tube size is {{ userBikes.sizes.MountHibrid.inches }}</p>
-        <p>Your Mountain and Hybrid bike size is {{userBikes.sizes.MountHibrid.size}}</p>
-        <p>Your Road bike size is {{userBikes.sizes.Road.inches}}</p>
-        <p>Your Road bike size is {{userBikes.sizes.Road.size}}</p>
-      </div>
+    <div *ngIf="userBikes.sizes">
+      <p>Your Mountain and Hybrid bike tube size is {{ userBikes.sizes.MountHibrid.inches }}</p>
+      <p>Your Mountain and Hybrid bike size is {{userBikes.sizes.MountHibrid.size}}</p>
+      <p>Your Road bike size is {{userBikes.sizes.Road.inches}}</p>
+      <p>Your Road bike size is {{userBikes.sizes.Road.size}}</p>
+    </div>
+    <div *ngIf=!userBikes.sizes>
+      <p>You haven't calculated your size :</p>
+      <p>
+        Go to the link below to make a calculation.
+      </p>
+    </div>
+    
   </div>
 
   <button class="btn-primary"><a routerLink="/sizecalculator" routerLinkActive="active">Mesure your bike size</a></button>
 
   <div class="showFav" id="fav">
-  <h3>  Your fvorite bikes:</h3>
-    You have {{linkBikes.length}} bikes selected;
-
-  
+    <h3> Your fvorite bikes:</h3>
+    <div *ngIf='!(linkBikes.length - 1)'>
+      <p>
+        You haven't select bike yet :
+      </p>
+      <p>
+        Go to the link below to explore bikes. 
+      </p>
+    </div>
+   
+     <div *ngIf="linkBikes.length -1">
+      <p>You have selected: <span>{{linkBikes.length -1}}</span> bikes </p>
       <div *ngFor="let bike of linkBikes">
-        <a  routerLink="/explorebikes/{{bike}}" >
+        <a routerLink="/explorebikes/{{bike}}">
           {{bike}}
         </a>
-        
-        </div>
-  </div>
- 
-  <button class="btn-primary"><a routerLink="/explorebikes" routerLinkActive="active">Explore bikes</a></button>
-</div>
+  
+      </div>
+     </div>
+    
 
+    </div>
+    <button class="btn-primary"><a routerLink="/explorebikes" routerLinkActive="active">Explore bikes</a></button>
+  </div>
+
+ 

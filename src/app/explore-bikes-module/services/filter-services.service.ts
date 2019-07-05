@@ -70,13 +70,13 @@ export class FilterServicesService {
   }
 
 
-  searchBikes(inputSearch, BikeList){
+  searchBikes(inputSearch, BikeList) {
     let SortedBikes = [];
 
     BikeList.forEach(bike => {
-      if(bike.fullName.toLowerCase().includes(inputSearch.toLowerCase())) SortedBikes.push(bike);
+      if (bike.fullName.toLowerCase().includes(inputSearch.toLowerCase())) SortedBikes.push(bike);
     })
-     this.filterSendBikes.next(SortedBikes);
+    this.filterSendBikes.next(SortedBikes);
   }
 }
 

@@ -3,9 +3,6 @@ import { HttpUserBikesService } from 'src/app/shared-module/shared services/http
 
 
 
-
-
-
 @Component({
   selector: 'app-user-favoritebikes',
   templateUrl: './user-favoritebikes.component.html',
@@ -20,13 +17,9 @@ export class UserFavoritebikesComponent implements OnInit {
   constructor(private getDAta: HttpUserBikesService) { }
 
 
-  
-
   ngOnInit() {
-    
-  
-     this.getDAta.FetchUsersBikes().subscribe(x => {
-      console.log(x);
+   this.getDAta.FetchUsersBikes().subscribe(x => {
+    console.log(x);
     this.userBikes = [];
     this.linkBikes = [];
     console.log(this.userBikes);
@@ -34,6 +27,7 @@ export class UserFavoritebikesComponent implements OnInit {
    
      if(this.userBikes){
        this.userBikes.bikes.forEach(bike => this.linkBikes.push(bike.replace(/\s/g, '-').toLowerCase()));  
+       
      }});
    }
 

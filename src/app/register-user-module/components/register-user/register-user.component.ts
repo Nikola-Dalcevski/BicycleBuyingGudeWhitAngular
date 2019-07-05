@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {  AuthFirebaseService } from '../../../shared-module/shared services/auth-firebase.service';
-import {Router} from "@angular/router";
+import { AuthFirebaseService } from '../../../shared-module/shared services/auth-firebase.service';
+import { Router } from "@angular/router";
 import { AngularFireDatabase } from 'angularfire2/database';
+
+
 @Component({
   selector: 'app-register-user',
   templateUrl: './register-user.component.html',
@@ -13,18 +15,18 @@ import { AngularFireDatabase } from 'angularfire2/database';
 
 
 export class RegisterUserComponent implements OnInit {
-   email: string;
-   password: string;
-   name: string;
-   userId;
-   errorMessage: string;
-   confirmPassword: string;
+  email: string;
+  password: string;
+  name: string;
+  userId;
+  errorMessage: string;
+  confirmPassword: string;
 
   constructor(private authService: AuthFirebaseService,
-     private db: AngularFireDatabase,
-     private router: Router) { }
-  
-    async onSubmit(event,eve){
+    // private db: AngularFireDatabase,
+    private router: Router) { }
+
+  async onSubmit(event, eve) {
     eve.preventDefault();
 
     console.log(event.value);
@@ -33,22 +35,16 @@ export class RegisterUserComponent implements OnInit {
     this.password = event.value.regPassword;
     this.confirmPassword
 
-    await this.authService.signup(event.value.email,event.value.regPassword, event.value.name, event.value.confirm)
-   
-    console.log(this.errorMessage);
+    await this.authService.signup(event.value.email, event.value.regPassword, event.value.name, event.value.confirm)
+
     this.errorMessage = this.authService.errorMessage;
-    if(!this.errorMessage){
-      this.errorMessage ="You are seccesfuly registered";
-       setTimeout(() => {
-         this.router.navigate(['/'])
-       }, 2000);
+    if (!this.errorMessage) {
+      this.errorMessage = "You are seccesfuly registered";
+      setTimeout(() => {
+        this.router.navigate(['/'])
+      }, 2000);
     }
-    console.log(this.errorMessage);
 
-    
-   
-
-    
   }
 
 
@@ -58,14 +54,9 @@ export class RegisterUserComponent implements OnInit {
     this.errorMessage = "";
     this.authService.userSend.subscribe(x => {
       console.log(x);
-      if(x){
+      if (x) {
         this.errorMessage = x.error
       }
-     
-    
-     });
-  
+    });
   }
-
-
 }

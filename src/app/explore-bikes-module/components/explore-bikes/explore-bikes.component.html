@@ -1,13 +1,8 @@
 <div class="container">
-
-   <div  *ngIf="!isFinished">
-     loading
-   </div>
- 
-   <div *ngIf="isFinished">
-    <filter-bikes [BikesList]="bikes"></filter-bikes>
-    
-
+  <div *ngIf="!isFinished">
+    loading
   </div>
- 
+  <div *ngIf="isFinished">
+    <filter-bikes [BikesList]="bikes"></filter-bikes>
+  </div>
 </div>

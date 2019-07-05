@@ -1,9 +1,4 @@
 <div class="logInText " *ngIf="!showUserMenu">
-
-
-
-
-
     <form #logInForm="ngForm" class="form-inline my-2 my-lg-0 " (submit)="onSubmit(logInForm)">
         <div class="form-group ">
             <input ngModel email required #email="ngModel" name="email" type="email" class="form-control-sm  mr-sm-2 "
@@ -11,7 +6,6 @@
             <input ngModel id="pass" minlength="8" name="pass" #pass="ngModel" type="password" class="form-control-sm  mr-sm-2 "
                 placeholder="Password" required> <br>
             <button id="logBtn" type="submit" class="btn-primary ">Log in</button>
-
         </div>
     </form>
     <a id="reg" class="register " routerLink="/registeruser">register</a>

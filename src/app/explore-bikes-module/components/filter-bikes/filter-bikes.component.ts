@@ -1,56 +1,50 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Bike } from 'src/app/shared-module/Models/bike';
 import { FilterServicesService } from '../../services/filter-services.service';
-import {  ShowBikesComponent } from '../show-bikes/show-bikes.component';
-// import { showBikesComponent } from "../show-bikes/show-bikes.component"
+import { ShowBikesComponent } from '../show-bikes/show-bikes.component';
 
- @Component({
+
+@Component({
   selector: 'filter-bikes',
   templateUrl: './filter-bikes.component.html',
   styleUrls: [
     './filter-bikes.component.css',
     "../../../../../node_modules/font-awesome/css/font-awesome.css"
   ],
-
 })
+
 export class FilterBikesComponent implements OnInit {
-  //filters: string[];
-  @Input()BikesList;
+
+  @Input() BikesList;
   @ViewChild(ShowBikesComponent)
-  private child : ShowBikesComponent
- 
+  private child: ShowBikesComponent
   filteredBikes: Bike[];
   usedfilter: boolean;
-   selBike;
- 
-   
-  constructor(private filterService: FilterServicesService) { 
+  selBike;
+
+
+  constructor(private filterService: FilterServicesService) {
 
   }
 
-  onSubmit(event,form){
-   
+  onSubmit(event, form) {
+
     this.usedfilter = true;
     let elements = event.target.elements;
-    this.filterService.filterBikes(elements, this.BikesList); 
-    
+    this.filterService.filterBikes(elements, this.BikesList);
     // form.reset();
   }
 
-  showFilteredBikes(){
-    if(this.usedfilter){
+  showFilteredBikes() {
+    if (this.usedfilter) {
       this.filteredBikes = this.selBike;
-      
-     }
-     else{
-     this.filteredBikes = this.BikesList;
-     }
+    }
+    else {
+      this.filteredBikes = this.BikesList;
+    }
+  }
 
-    
-    
-   }
-  
-  SearchFunction(form){
+  SearchFunction(form) {
     this.usedfilter = true;
     let search = form.value.search;
     this.filterService.searchBikes(search, this.BikesList)
@@ -61,14 +55,13 @@ export class FilterBikesComponent implements OnInit {
 
 
   ngOnInit() {
-   
+
     this.filterService.sendBikeList.subscribe(bikes => {
-      console.log(bikes);
       this.selBike = bikes;
       this.showFilteredBikes();
-       if(this.child){
+      if (this.child) {
         this.child.setPage(1);
-       }
+      }
     });
   }
 }

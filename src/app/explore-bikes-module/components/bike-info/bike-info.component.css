@@ -4,23 +4,24 @@
     border: 1px solid gray;
     
   }
+
   .tumbs {
       padding-top: 20px;
   }
+
   .tumbs :hover{
   opacity: 0.5; 
   cursor: pointer;
   }
+
   #main-img-bike{
       width: 400px;
       height: 400px;
   }
 
-  
 .container{
     max-width: 100%;
-    background-color: #fff;
-    
+    background-color: #fff;    
     text-align: left;
 }
 
@@ -28,8 +29,7 @@
     text-align: center;
 }
 
-.customAdd{
-  
+.customAdd{ 
     margin: auto;
     margin-top: 30px;
 }

@@ -1,8 +1,7 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Bike } from '../../../shared-module/Models/bike';
 import { ShowBikesComponent } from '../show-bikes/show-bikes.component';
-import { BikeInfoService } from '../../services/bike-info.service';
-import { AngularFireDatabase} from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { AuthFirebaseService } from 'src/app/shared-module/shared services/auth-firebase.service';
 import { ActivatedRoute } from '@angular/router';
 import { GetBikesService } from '../../services/get-bikes.service';
@@ -15,48 +14,35 @@ import { GetBikesService } from '../../services/get-bikes.service';
 })
 
 export class BikeInfoComponent implements OnInit {
-   bike: Bike;
-  
-   imageUrl = "../../assets/Images/image1.jpg" ;
-   userId;
+  bike: Bike;
+  imageUrl = "../../assets/Images/image1.jpg";
+  userId;
 
   constructor(
-     private db: AngularFireDatabase,
-     private authService: AuthFirebaseService,
-     private getBikes: GetBikesService,
-     private activatedRoute: ActivatedRoute) { }
+    private db: AngularFireDatabase,
+    private authService: AuthFirebaseService,
+    private getBikes: GetBikesService,
+    private activatedRoute: ActivatedRoute) { }
 
 
-   addBike(){
-     if(this.authService.userId){
+  addBike() {
+    if (this.authService.userId) {
       this.userId = this.authService.userId;
-       this.db.list(`/${this.userId}/bikes`).push(this.bike.fullName);
-    }}
-
-
-   chageImage(c){
-     this.imageUrl = `../../assets/Images/image${c}.jpg`
-   }
-  
-  ngOnInit() {
-     
-     
-    this.activatedRoute.params.subscribe(param =>
-      {
-        this.getBikes.sendBikes.subscribe(bikes =>
-        {
-          if (bikes)
-            this.bike = bikes.bikes.find(bike => bike.routeName === param.bikename);
-        })
-      })
-    // console.log("info")
-    // this.data.currentBikeInfo.subscribe(bikeInfo => this.bike = bikeInfo);
-   
-
-    // this.bike = this.bikeInfo;
-    
-
+      this.db.list(`/${this.userId}/bikes`).push(this.bike.fullName);
+    }
   }
-  
 
+
+  chageImage(c) {
+    this.imageUrl = `../../assets/Images/image${c}.jpg`
+  }
+
+  ngOnInit() {
+    this.activatedRoute.params.subscribe(param => {
+      this.getBikes.sendBikes.subscribe(bikes => {
+        if (bikes)
+          this.bike = bikes.bikes.find(bike => bike.routeName === param.bikename);
+      })
+    })
+  }
 }

@@ -14,71 +14,55 @@ export class SizeCalculatorComponent implements OnInit {
   heightSizes;
   inseamSizes;
   bikeSizes = null;
-   minHeight = 150;
-   maxHeight = 192;
-   height;
-   userId;
-  
- 
-  constructor(private data: BikeSizeInseamCalculatorService,
-              private bikeData: BikeSizeCalculatorService,
-              private authService: AuthFirebaseService,
-              private db: AngularFireDatabase
-     ) { }
+  minHeight = 150;
+  maxHeight = 192;
+  height;
+  userId;
 
-   calculateSizes(){
-    for(this.minHeight;this.minHeight <= this.maxHeight; this.minHeight++){
+
+  constructor(private data: BikeSizeInseamCalculatorService,
+    private bikeData: BikeSizeCalculatorService,
+    private authService: AuthFirebaseService,
+    private db: AngularFireDatabase
+  ) { }
+
+  calculateSizes() {
+    for (this.minHeight; this.minHeight <= this.maxHeight; this.minHeight++) {
       this.heightSizes.push(this.minHeight);
     }
-   }
-
-   addBike(){
-    if(this.authService.userId){
-     this.userId = this.authService.userId;
-      this.db.list(`/${this.userId}/sizes`).set("size", this.bikeSizes);
-   
-    }
-     
   }
 
-   changeHeight(model){
-     
+  addBike() {
+    if (this.authService.userId) {
+      this.userId = this.authService.userId;
+      this.db.list(`/${this.userId}/sizes`).set("size", this.bikeSizes);
+    }
+  }
+
+  changeHeight(model) {
     this.data.changeSizeInseam(model.value)
-     this.height = model.value;
-     console.log(this.height);
-      
-   }
-   onSubmit(form){
-        console.log(form);
-        
-     let userHeight = form.value.height
-     let userInseam = form.value.inseam
-     form.reset();
-     if(userHeight && userInseam){
-      this.bikeData.calculateSizeBike(userHeight,userInseam);
-     }
-  
-    
-}
+    this.height = model.value;
+    console.log(this.height);
+  }
+
+  onSubmit(form) {
+    let userHeight = form.value.height
+    let userInseam = form.value.inseam
+    form.reset();
+    if (userHeight && userInseam) {
+      this.bikeData.calculateSizeBike(userHeight, userInseam);
+    }
+  }
+
 
   ngOnInit() {
     this.inseamSizes = [];
-       this.heightSizes = new Array();
-       this.calculateSizes();
-       console.log("constructor called");
-
+    this.heightSizes = new Array();
+    this.calculateSizes();
     this.data.sendSizeInseam.subscribe(x => this.inseamSizes = x);
     this.bikeData.sendBikeSize.subscribe(x => {
-    
       this.bikeSizes = x
-      console.log(this.bikeSizes)});
- 
- 
+    });
+
   }
- 
- 
-   
-    
-   
-  
 }

@@ -10,20 +10,17 @@ import { ChangeDetectorStatus } from '@angular/core/src/change_detection/constan
 })
 export class AppComponent {
  
-  // changImg = 1;
+
   imgUrl;
   
-  //  imgUrl = `../assets/Images/background${this.changImg}.jpg`
+
  
-  constructor(private bgc: BackgroundService){
-    
-  }
+  constructor(private bgc: BackgroundService){}
+
   title = 'bicycleBuyingGuide';
 
-  
   ngOnInit() {
     this.bgc.changeBackGround();
-    
     this.bgc.sendImage.subscribe(x =>{
       if(!x){
         x = 1;
