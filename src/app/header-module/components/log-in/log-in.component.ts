@@ -33,7 +33,9 @@ export class LogInComponent implements OnInit {
   ngOnInit() {
     this.authService.userSend.subscribe(x => {  
       if(x){
+        console.log("change");
         this.showUserMenu = x.bikeuser ? true : false;
+        console.log(this.showUserMenu);
         x ? this.userName = x.bikeuser : false;
       }     
     })

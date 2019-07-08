@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { BehaviorSubject, throwError } from 'rxjs';
+import { BehaviorSubject, throwError, observable } from 'rxjs';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 
@@ -77,6 +77,7 @@ export class AuthFirebaseService {
       .then(value => {
         console.log(value.user.displayName);
         this.user.next({ bikeuser: value.user.displayName, error: null });
+        console.log("send observable");
         this.userId = value.user.uid
       })
       .catch(err => {
@@ -100,6 +101,8 @@ export class AuthFirebaseService {
     this.firebaseAuth
       .auth
       .signOut();
+      this.userDisplayName = "";
+      this.userId = ""
   }
 
 }

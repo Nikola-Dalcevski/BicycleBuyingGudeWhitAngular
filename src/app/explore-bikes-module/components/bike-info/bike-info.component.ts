@@ -29,6 +29,7 @@ export class BikeInfoComponent implements OnInit {
     if (this.authService.userId) {
       this.userId = this.authService.userId;
       this.db.list(`/${this.userId}/bikes`).push(this.bike.fullName);
+      // this.db.list(`/${this.userId}/bikes`).remove("");
     }
   }
 

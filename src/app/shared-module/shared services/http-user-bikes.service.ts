@@ -11,6 +11,7 @@ export class HttpUserBikesService {
   bikeslis;
   sizelis;
   bikesList = [];
+  BikeEntries;
   private bikes = new BehaviorSubject<Object>(null);
   bikesSend = this.bikes.asObservable();
   constructor(private http: Http, private user: AuthFirebaseService) {
@@ -23,18 +24,27 @@ export class HttpUserBikesService {
     this.http.get("https://frontend-project-with-firebase.firebaseio.com/.json")
       .subscribe(res => {
         let data = res.json();
+        console.log(data);
         let userId = this.user.userId;
-        this.bikeslis = data[`${userId}`].bikes;
-        this.sizelis = data[`${userId}`].sizes.size[0];
-        this.bikesList = [];
-        for (let bike of Object.values(this.bikeslis)) {
-          this.bikesList.push(bike);
+        if(userId){
+          this.bikeslis = data[`${userId}`].bikes;
+          console.log(this.bikesList);
+          this.sizelis = data[`${userId}`].sizes.size[0];
+          this.bikesList = [];
+          for (let bike of Object.values(this.bikeslis)) {
+            this.bikesList.push(bike);
+            
+          }
+            
+       
         }
-
+        
+  
 
         this.bikes.next({
           bikes: this.bikesList,
           sizes: this.sizelis,
+          test: Object.entries(this.bikeslis),
         })
 
 

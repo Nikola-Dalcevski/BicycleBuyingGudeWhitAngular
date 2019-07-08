@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
@@ -15,6 +15,8 @@ import { ExploreBikesModuleModule } from './explore-bikes-module/explore-bikes-m
 import { HeaderModuleModule } from './header-module/header-module.module';
 import { RegisterUserModuleModule } from './register-user-module/register-user-module.module';
 import { SharedModuleModule } from './shared-module/shared-module.module';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
 
 
 
@@ -47,10 +49,11 @@ import { SharedModuleModule } from './shared-module/shared-module.module';
     HeaderModuleModule,
     RegisterUserModuleModule,
     SharedModuleModule.forRoot(),
+    MDBBootstrapModule.forRoot()
 
 
   ],
-  
+  schemas: [ NO_ERRORS_SCHEMA ],
  
   bootstrap: [AppComponent]
 })

@@ -35,6 +35,7 @@ export class SizeCalculatorComponent implements OnInit {
   addBike() {
     if (this.authService.userId) {
       this.userId = this.authService.userId;
+      console.log(this.userId);
       this.db.list(`/${this.userId}/sizes`).set("size", this.bikeSizes);
     }
   }
@@ -42,7 +43,6 @@ export class SizeCalculatorComponent implements OnInit {
   changeHeight(model) {
     this.data.changeSizeInseam(model.value)
     this.height = model.value;
-    console.log(this.height);
   }
 
   onSubmit(form) {
@@ -56,6 +56,7 @@ export class SizeCalculatorComponent implements OnInit {
 
 
   ngOnInit() {
+    
     this.inseamSizes = [];
     this.heightSizes = new Array();
     this.calculateSizes();

@@ -34,15 +34,18 @@ export class RegisterUserComponent implements OnInit {
     this.email = event.value.email;
     this.password = event.value.regPassword;
     this.confirmPassword
-
+    console.log(typeof this.password);
     await this.authService.signup(event.value.email, event.value.regPassword, event.value.name, event.value.confirm)
-
+   
     this.errorMessage = this.authService.errorMessage;
     if (!this.errorMessage) {
       this.errorMessage = "You are seccesfuly registered";
       setTimeout(() => {
         this.router.navigate(['/'])
-      }, 2000);
+        this.authService.login(event.value.email, this.password);
+      }, 1000);
+     
+      this.errorMessage = "";
     }
 
   }

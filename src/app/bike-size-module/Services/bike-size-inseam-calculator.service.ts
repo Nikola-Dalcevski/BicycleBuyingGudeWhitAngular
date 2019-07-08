@@ -44,7 +44,7 @@ export class BikeSizeInseamCalculatorService {
         for (min; min <= max; min++) {
             this.inseamSizes.push(min);
         }
-        console.log(this.inseamSizes);
+        
         this.sizeInseam.next(this.inseamSizes);
     }
 
