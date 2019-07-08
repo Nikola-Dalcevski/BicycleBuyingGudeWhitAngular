@@ -1,6 +1,8 @@
 .nav-my-css{
     background-color: black;
-    overflow: visible;
+    position: relative;
+    /* overflow: visible; */
+    background-color: black;
 }
 .nav-heading{
     font-weight: bold;
@@ -39,7 +41,7 @@
 }
 
 .nav-link{
-    padding:15px 5px;
+    padding:10px 5px;
     transition:0.2s;
 }
 .alert-denger{
@@ -53,4 +55,20 @@
 #navbarSupportedContent{
     height: 50px;
     overflow: visible;
+}
+
+.test{
+    position: absolute;
+    right: 5px;
+   
+}
+
+button {
+    color: wheat;
+}
+.navbar-toggler {
+    color: white;
+}
+* {
+    color: white
 }
