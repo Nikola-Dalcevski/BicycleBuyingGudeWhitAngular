@@ -9,3 +9,8 @@
     color: white;
   
 }
+
+.register :hover{
+    text-decoration: none;
+    color: white;
+}

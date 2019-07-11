@@ -28,7 +28,7 @@ export class UserFavoritebikesComponent implements OnInit {
 
   remove(bike){
    
-   let me =  this.test.find(x => {
+     let me =  this.test.find(x => {
      this.s = x[1];
      return this.s.toLowerCase() === bike.replace(/\-/g, ' ');
     
@@ -47,26 +47,23 @@ export class UserFavoritebikesComponent implements OnInit {
    
   }
   ngOnInit() {
-
-    
-    this.getDAta.FetchUsersBikes().subscribe(x => {
-      this.userBikes = [];
-      this.linkBikes = [];
-      this.userBikes = x;
-      console.log(this.userBikes);
-    
-    
+   console.log()
+    if(this.auth.userId){
+      this.getDAta.FetchUsersBikes().subscribe(x => {
+        this.userBikes = [];
+        this.linkBikes = [];
+        this.userBikes = x;
+        console.log(this.userBikes);
        
-      if (this.userBikes) {
-        this.userBikes.bikes.forEach(bike => this.linkBikes.push(bike.replace(/\s/g, '-').toLowerCase()));
-        this.usersizes = this.userBikes.sizes;
-        this.test = this.userBikes.test;
-       
-      }
-      
-      
+        if (this.userBikes) {
+          this.userBikes.bikes.forEach(bike => this.linkBikes.push(bike.replace(/\s/g, '-').toLowerCase()));
+          this.usersizes = this.userBikes.sizes;
+          this.test = this.userBikes.test;
+         
+        }
+      });
+    }
     
-    });
   }
   
 

@@ -6,6 +6,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 
 
 
+
 interface ISendUser {
   bikeuser: string,
   error: string;
@@ -17,6 +18,9 @@ interface ISendUser {
 export class AuthFirebaseService {
   user = new BehaviorSubject<ISendUser>(null);
   userSend = this.user.asObservable();
+  isRegistered: boolean;
+  error = new BehaviorSubject<string>(null);
+  errrorSend = this.error.asObservable();
 
 
   userDisplayName: string;
@@ -25,49 +29,67 @@ export class AuthFirebaseService {
   logInError: string;
 
 
-  constructor(private firebaseAuth: AngularFireAuth, private db: AngularFireDatabase) {
-    const listRef = db.list('items');
-    console.log("koljo")
-  }
+  constructor(private firebaseAuth: AngularFireAuth, private db: AngularFireDatabase) {}
+
+
+
 
   signup(email: string, password: string, name: string, confirmPassword) {
+     
     try {
       if (password != confirmPassword) {
         throw "your password and confirm password do not match";
-
       } else if (name.length <= 2) {
         throw "Your name must be at least 3 characters";
       } else {
+
         this.firebaseAuth
           .auth
           .createUserWithEmailAndPassword(email, password)
-          .then(value => {
-            this.user.next({ bikeuser: null, error: "You are seccesfuly registered" });
-            this.firebaseAuth.user.subscribe(user => user.updateProfile({ displayName: name }));
+          .then(() => {
+        
+            // if (this.firebaseAuth.user) {
+              this.login(email,password);
+              this.firebaseAuth.user.subscribe(user => user.updateProfile({ displayName: name }));
+             
+            // }           
           })
           .then(() => {
-            this.firebaseAuth.user.subscribe(user => {
-              this.userDisplayName = user.displayName;
+            // if (this.firebaseAuth.user) {
+              this.firebaseAuth.user.subscribe(user => {
+                this.db.database.ref(user.uid).set({
+                  bikes: [""],
+                  sizes: { size: "" },
+                });
+              })
 
-              this.db.database.ref(user.uid).set({
-                bikes: [""],
-                sizes: { size: "" },
-              });
-            })
+              
+            // }
+            this.isRegistered = true;
+            //this throw is important so can redirect from register component
+            throw "Register";
           })
           .catch(err => {
-            this.errorMessage = err;
+            this.errorMessage = err.message;
             console.log(this.errorMessage);
+            this.error.next(this.errorMessage);
+            this.isRegistered = false;
           })
       }
     }
-    catch (err) {
-      this.errorMessage = err;
-      console.log(this.errorMessage);
+    catch(err){
+    this.errorMessage = err;
+    console.log(this.errorMessage);
+    this.error.next(this.errorMessage);
+    this.isRegistered = false;
     }
+    
 
 
-  }
+   
+    
+    
+  };
 
 
   login(email: string, password: string) {
@@ -75,34 +97,23 @@ export class AuthFirebaseService {
       .auth
       .signInWithEmailAndPassword(email, password)
       .then(value => {
-        console.log(value.user.displayName);
-        this.user.next({ bikeuser: value.user.displayName, error: null });
-        console.log("send observable");
+        this.user.next({bikeuser : value.user.displayName, error : null});
         this.userId = value.user.uid
       })
       .catch(err => {
-      
-      
-       
-        this.logInError = err.message;
+        // this.logInError = err.message;
+        this.user.next({bikeuser : null, error : err.message});
       });
   }
 
-  addBikeToUser() {
-    console.log(this.db.database);
-  }
 
-
-  showErrorMessage() {
-    return this.errorMessage;
-  }
 
   logout() {
     this.firebaseAuth
       .auth
       .signOut();
-      this.userDisplayName = "";
-      this.userId = ""
+    this.userDisplayName = "";
+    this.userId = ""
   }
 
 }

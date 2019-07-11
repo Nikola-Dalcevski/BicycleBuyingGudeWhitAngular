@@ -16,11 +16,11 @@ export class LogInComponent implements OnInit {
 
   constructor(public authService: AuthFirebaseService ) {}
 
-  async onSubmit(logInForm) {
+  onSubmit(logInForm) {
   this.email = logInForm.value.email;
   this.password =  logInForm.value.pass;
-  await this.authService.login(this.email, this.password); 
-  this.loginError = this.authService.logInError; 
+  this.authService.login(this.email, this.password); 
+  // this.loginError = this.authService.logInError; 
   }
 
   changeShow(event){
@@ -33,10 +33,10 @@ export class LogInComponent implements OnInit {
   ngOnInit() {
     this.authService.userSend.subscribe(x => {  
       if(x){
-        console.log("change");
+        console.log(x);
         this.showUserMenu = x.bikeuser ? true : false;
-        console.log(this.showUserMenu);
-        x ? this.userName = x.bikeuser : false;
+        this.loginError = x.error;
+        this.userName = x.bikeuser 
       }     
     })
   }

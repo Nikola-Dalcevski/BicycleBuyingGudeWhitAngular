@@ -4,9 +4,9 @@ h3, h1, h2 {
 }
 
 
-.test {
-    border-radius: 20px;
-    width: 90%;
+.costumImg {
+    border-radius: 25px;
+    width: 100%;
     height: auto;
     
 }
@@ -21,6 +21,11 @@ h3 {
     padding: 20px;
 }
 
+.costumIm{
+    border-radius: 40px;
+    width: 100%;
+    height: auto;
+}
 
 article > p {
     text-align: left;
@@ -34,4 +39,10 @@ article > p {
         width: 80%;
         height: auto;
     }
+}
+
+
+button {
+    margin: 10px;
+  
 }

@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
     providedIn: 'root'
 })
 export class BikeSizeInseamCalculatorService {
-    private sizeInseam = new BehaviorSubject<any>([]);
+    private sizeInseam = new BehaviorSubject<number[]>([]);
     sendSizeInseam = this.sizeInseam.asObservable();
 
     inseamSizes = new Array();

@@ -29,7 +29,6 @@ export class BikeInfoComponent implements OnInit {
     if (this.authService.userId) {
       this.userId = this.authService.userId;
       this.db.list(`/${this.userId}/bikes`).push(this.bike.fullName);
-      // this.db.list(`/${this.userId}/bikes`).remove("");
     }
   }
 
@@ -39,7 +38,9 @@ export class BikeInfoComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getBikes.getBikes();
     this.activatedRoute.params.subscribe(param => {
+     console.log(param);
       this.getBikes.sendBikes.subscribe(bikes => {
         if (bikes)
           this.bike = bikes.bikes.find(bike => bike.routeName === param.bikename);

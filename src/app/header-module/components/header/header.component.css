@@ -72,3 +72,18 @@ button {
 * {
     color: white
 }
+
+.mdb-navbar{
+    color:white;
+}
+#navbar-collapses {
+    color: white;
+}
+
+.navbar-toggler-icon {
+    color:wheat;
+}
+
+a {
+    color: #007bff;
+}

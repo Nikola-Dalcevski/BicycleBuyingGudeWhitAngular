@@ -15,3 +15,6 @@ table{
 img {
     border-radius: 15px;
 }
+h2, h3 {
+    font-weight: 600;
+}

@@ -10,4 +10,21 @@
 
 hr{
     border: 3px solid black;
+    
 }
+
+.submitSort {
+    text-align: center;
+}
+
+.wraper {
+    /* padding: 0px; */
+    padding-left: 15px;
+    
+  
+}
+
+.show {
+    padding-left: px;
+}
+

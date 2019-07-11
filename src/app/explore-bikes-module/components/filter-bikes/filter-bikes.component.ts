@@ -60,7 +60,7 @@ export class FilterBikesComponent implements OnInit {
       this.selBike = bikes;
       this.showFilteredBikes();
       if (this.child) {
-        this.child.setPage(1);
+         this.child.setPage(1);
       }
     });
   }

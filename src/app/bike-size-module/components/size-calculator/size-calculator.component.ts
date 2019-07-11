@@ -11,13 +11,13 @@ import { AngularFireDatabase } from 'angularfire2/database';
   styleUrls: ['./size-calculator.component.css']
 })
 export class SizeCalculatorComponent implements OnInit {
-  heightSizes;
-  inseamSizes;
+  heightSizes: number[];
+  inseamSizes: number[];
   bikeSizes = null;
   minHeight = 150;
   maxHeight = 192;
-  height;
-  userId;
+  height: number;
+  userId: string;
 
 
   constructor(private data: BikeSizeInseamCalculatorService,
@@ -26,7 +26,9 @@ export class SizeCalculatorComponent implements OnInit {
     private db: AngularFireDatabase
   ) { }
 
-  calculateSizes() {
+
+  arrayHeightSizes() {
+    this.heightSizes = [];
     for (this.minHeight; this.minHeight <= this.maxHeight; this.minHeight++) {
       this.heightSizes.push(this.minHeight);
     }
@@ -35,7 +37,6 @@ export class SizeCalculatorComponent implements OnInit {
   addBike() {
     if (this.authService.userId) {
       this.userId = this.authService.userId;
-      console.log(this.userId);
       this.db.list(`/${this.userId}/sizes`).set("size", this.bikeSizes);
     }
   }
@@ -45,7 +46,7 @@ export class SizeCalculatorComponent implements OnInit {
     this.height = model.value;
   }
 
-  onSubmit(form) {
+  calculateSizes(form) {
     let userHeight = form.value.height
     let userInseam = form.value.inseam
     form.reset();
@@ -57,11 +58,13 @@ export class SizeCalculatorComponent implements OnInit {
 
   ngOnInit() {
     
+    window.scrollTo(0, 0)
+   console.log("nikola");
+    this.arrayHeightSizes();
     this.inseamSizes = [];
-    this.heightSizes = new Array();
-    this.calculateSizes();
     this.data.sendSizeInseam.subscribe(x => this.inseamSizes = x);
     this.bikeData.sendBikeSize.subscribe(x => {
+      console.log("Kolpj")
       this.bikeSizes = x
     });
 

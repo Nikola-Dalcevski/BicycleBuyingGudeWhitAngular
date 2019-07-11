@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class FilterServicesService {
+  export class FilterServicesService {
   Typefilters: string[];
   private filterSendBikes = new BehaviorSubject<Bike[]>(null);
   sendBikeList = this.filterSendBikes.asObservable();
@@ -16,57 +16,49 @@ export class FilterServicesService {
 
   constructor() { }
 
-  filterBikes(filtersObject, BikeList) {
+  filterBikes(filtersList, BikeList) {
 
     let typeFilters = [];
     let brandFilters = [];
     let sizeFilters = [];
+
+    
     let filterBikesType = [];
     let filterBikesBrand = [];
     let filterBikesSize = [];
     let test;
-
-    for (let element of filtersObject) {
+   console.log(filtersList);
+    for (let element of filtersList) {
 
       if (element.checked && element.name == "Type") typeFilters.push(element.value);
       else if (element.checked && element.name == "Brand") brandFilters.push(element.value);
       else if (element.checked && element.name == "Size") sizeFilters.push(element.value);
     }
 
-    if (typeFilters.length) {
-      typeFilters.forEach(type => {
-        test = BikeList.filter(bike => bike.type === type);
-        filterBikesType.push(...test);
-      })
-    } else {
-      filterBikesType = BikeList
+
+     filterBikesType = this.filterBikesBySection(typeFilters,BikeList,"type");
+     filterBikesBrand = this.filterBikesBySection(brandFilters, filterBikesType, "brand");
+     filterBikesSize = this.filterBikesBySection(sizeFilters,filterBikesBrand, "tireSize");
+     this.filterSendBikes.next(filterBikesSize);
+
+
+  }
+ 
+  filterBikesBySection(filters: string[], listOfBikes: Bike[], bikeProperty: string ){
+    let filterbikes;
+    let listBike: Bike[] = [];
+    if(filters.length){
+      filters.forEach(item => {
+        filterbikes = listOfBikes.filter(bike =>  bike[bikeProperty] == item
+          )
+        listBike.push(...filterbikes);
+        console.log(listBike)
+      })    
+    }else {
+      listBike = listOfBikes;     
     }
 
-
-    if (brandFilters.length) {
-      brandFilters.forEach(brand => {
-        test = filterBikesType.filter(bike => bike.brand == brand)
-        filterBikesBrand.push(...test);
-      });
-
-    } else {
-      filterBikesBrand = filterBikesType
-    }
-
-
-    if (sizeFilters.length) {
-      sizeFilters.forEach(size => {
-        test = filterBikesBrand.filter(bike => bike.tireSize == size)
-        filterBikesSize.push(...test);
-      });
-    } else {
-      filterBikesSize = filterBikesBrand
-    }
-
-    this.filteredBikes = filterBikesSize;
-    this.filterSendBikes.next(this.filteredBikes);
-
-
+    return listBike;
   }
 
 

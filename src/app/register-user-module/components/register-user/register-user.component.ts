@@ -23,43 +23,41 @@ export class RegisterUserComponent implements OnInit {
   confirmPassword: string;
 
   constructor(private authService: AuthFirebaseService,
-    // private db: AngularFireDatabase,
+
     private router: Router) { }
 
-  async onSubmit(event, eve) {
+  onSubmit(event, eve) {
     eve.preventDefault();
 
-    console.log(event.value);
     this.name = event.value.name;
     this.email = event.value.email;
     this.password = event.value.regPassword;
     this.confirmPassword
-    console.log(typeof this.password);
-    await this.authService.signup(event.value.email, event.value.regPassword, event.value.name, event.value.confirm)
-   
-    this.errorMessage = this.authService.errorMessage;
-    if (!this.errorMessage) {
-      this.errorMessage = "You are seccesfuly registered";
-      setTimeout(() => {
-        this.router.navigate(['/'])
-        this.authService.login(event.value.email, this.password);
-      }, 1000);
-     
-      this.errorMessage = "";
-    }
+
+    this.authService.signup(event.value.email, event.value.regPassword, event.value.name, event.value.confirm)
 
   }
 
 
 
 
+
+
   ngOnInit() {
-    this.errorMessage = "";
-    this.authService.userSend.subscribe(x => {
+    // this.errorMessage = "";
+    this.authService.errrorSend.subscribe(x => {
       console.log(x);
       if (x) {
-        this.errorMessage = x.error
+        this.errorMessage = x
+      } 
+       console.log(this.authService.isRegistered);
+      if(this.authService.isRegistered){
+       
+          this.router.navigate(['/']);
+       
       }
+       
+      
     });
   }
 }

@@ -14,9 +14,9 @@ export class ShowBikesComponent implements OnInit {
   bikes;
   pagedItems;
   number =1;
-
+  pager: any = {};
   constructor( private pagerServic: PagerService) { };
-    pager: any = {};
+   
     
 
    setPage(page: number){
@@ -25,16 +25,16 @@ export class ShowBikesComponent implements OnInit {
    }
 
 
-  ngOnChanges(changes: SimpleChange){
-         let change = changes["bikeList"].currentValue;
-         console.log(change);
-          this.setPage(1);
-  }
+  // ngOnChanges(changes: SimpleChange){
+  //        let change = changes["bikeList"].currentValue;
+  //        console.log(change);
+  //         // this.setPage(1);
+  // }
 
 
 
   ngOnInit() {
-    this.setPage(1);  
+     this.setPage(1);  
   }
 
 }

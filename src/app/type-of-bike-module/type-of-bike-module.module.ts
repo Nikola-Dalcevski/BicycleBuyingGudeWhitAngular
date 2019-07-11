@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { TypeOfBikeHibridComponent} from './components/type-of-bike-hibrid/type-of-bike-hibrid.component'
 import { TypeOfBikeMountainComponent } from './components/type-of-bike-mountain/type-of-bike-mountain.component';
 import { TypeOfBikeRoadComponent } from './components/type-of-bike-road/type-of-bike-road.component';
@@ -14,8 +13,7 @@ import { RouterModule } from '@angular/router';
     TypeOfBikesComponent
   ],
   imports: [
-    CommonModule,
-    RouterModule
+     RouterModule
   ]
 })
 export class TypeOfBikeModuleModule { }

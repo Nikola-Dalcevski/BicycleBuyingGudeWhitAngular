@@ -8,15 +8,13 @@ import { BehaviorSubject, Observable, observable } from 'rxjs';
   providedIn: 'root'
 })
 export class HttpUserBikesService {
-  bikeslis;
+  bikeslis: []
   sizelis;
   bikesList = [];
   BikeEntries;
   private bikes = new BehaviorSubject<Object>(null);
   bikesSend = this.bikes.asObservable();
-  constructor(private http: Http, private user: AuthFirebaseService) {
-
-  }
+  constructor(private http: Http, private user: AuthFirebaseService) { }
 
 
 
@@ -24,10 +22,10 @@ export class HttpUserBikesService {
     this.http.get("https://frontend-project-with-firebase.firebaseio.com/.json")
       .subscribe(res => {
         let data = res.json();
-        console.log(data);
         let userId = this.user.userId;
         if(userId){
           this.bikeslis = data[`${userId}`].bikes;
+          console.log(data);
           console.log(this.bikesList);
           this.sizelis = data[`${userId}`].sizes.size[0];
           this.bikesList = [];

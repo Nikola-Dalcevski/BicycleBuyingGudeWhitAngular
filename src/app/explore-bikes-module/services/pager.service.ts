@@ -5,6 +5,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class PagerService {
+
+  constructor() { }
+
+
+  
  getPager(totalItems: number, currentPage: number = 1, pageSize: number = 9){
    let totalPages = Math.ceil(totalItems / pageSize);
 
@@ -51,5 +56,5 @@ export class PagerService {
        pages: pages
    };
  }
-  constructor() { }
+ 
 }
