@@ -59,12 +59,12 @@ export class SizeCalculatorComponent implements OnInit {
   ngOnInit() {
     
     window.scrollTo(0, 0)
-   console.log("nikola");
+ 
     this.arrayHeightSizes();
     this.inseamSizes = [];
     this.data.sendSizeInseam.subscribe(x => this.inseamSizes = x);
     this.bikeData.sendBikeSize.subscribe(x => {
-      console.log("Kolpj")
+      
       this.bikeSizes = x
     });
 
