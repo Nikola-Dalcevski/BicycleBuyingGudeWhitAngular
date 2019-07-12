@@ -16,7 +16,7 @@ import { ShowBikesComponent } from '../show-bikes/show-bikes.component';
 export class FilterBikesComponent implements OnInit {
 
   @Input() BikesList;
-  @ViewChild(ShowBikesComponent)
+  // @ViewChild(ShowBikesComponent)
   private child: ShowBikesComponent
   filteredBikes: Bike[];
   usedfilter: boolean;
@@ -27,19 +27,21 @@ export class FilterBikesComponent implements OnInit {
 
   }
 
-  onSubmit(event, form) {
-
+  onSubmit(event) {
     this.usedfilter = true;
     let elements = event.target.elements;
     this.filterService.filterBikes(elements, this.BikesList);
-    // form.reset();
   }
+
+
 
   showFilteredBikes() {
     if (this.usedfilter) {
       this.filteredBikes = this.selBike;
+      console.log("first");
     }
     else {
+      console.log("second");
       this.filteredBikes = this.BikesList;
     }
   }
@@ -56,12 +58,14 @@ export class FilterBikesComponent implements OnInit {
 
   ngOnInit() {
 
+    
     this.filterService.sendBikeList.subscribe(bikes => {
+    
       this.selBike = bikes;
       this.showFilteredBikes();
-      if (this.child) {
-         this.child.setPage(1);
-      }
+      // if (this.child) {
+      //    this.child.setPage(1);
+      // }
     });
   }
 }

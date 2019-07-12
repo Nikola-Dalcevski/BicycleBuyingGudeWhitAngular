@@ -22,19 +22,20 @@ export class ShowBikesComponent implements OnInit {
    setPage(page: number){
     this.pager = this.pagerServic.getPager(this.bikeList.length, page);
     this.pagedItems = this.bikeList.slice(this.pager.startIndex, this.pager.endIndex + 1);
+
    }
 
 
-  // ngOnChanges(changes: SimpleChange){
-  //        let change = changes["bikeList"].currentValue;
-  //        console.log(change);
-  //         // this.setPage(1);
-  // }
+  ngOnChanges(){
+        //  let change = changes["bikeList"].currentValue;
+
+           this.setPage(1);
+  }
 
 
 
   ngOnInit() {
-     this.setPage(1);  
+    //  this.setPage(1);  
   }
 
 }

@@ -27,12 +27,14 @@ export class SizeCalculatorComponent implements OnInit {
   ) { }
 
 
-  arrayHeightSizes() {
-    this.heightSizes = [];
-    for (this.minHeight; this.minHeight <= this.maxHeight; this.minHeight++) {
-      this.heightSizes.push(this.minHeight);
-    }
-  }
+  // arrayHeightSizes() {
+  //   this.heightSizes = [];
+  //   for (this.minHeight; this.minHeight <= this.maxHeight; this.minHeight++) {
+  //     this.heightSizes.push(this.minHeight);
+  //   }
+  // }
+
+  // this.heightSizes = this.data.
 
   addBike() {
     if (this.authService.userId) {
@@ -59,8 +61,8 @@ export class SizeCalculatorComponent implements OnInit {
   ngOnInit() {
     
     window.scrollTo(0, 0)
- 
-    this.arrayHeightSizes();
+    this.heightSizes = this.data.arrayHeightSizes(this.minHeight, this.maxHeight);
+    // this.arrayHeightSizes();
     this.inseamSizes = [];
     this.data.sendSizeInseam.subscribe(x => this.inseamSizes = x);
     this.bikeData.sendBikeSize.subscribe(x => {

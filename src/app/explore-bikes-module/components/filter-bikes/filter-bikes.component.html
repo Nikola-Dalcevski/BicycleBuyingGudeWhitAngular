@@ -7,7 +7,7 @@
           <button type="submit" id="searchButton" value="something"><i class="fa fa-search"></i></button>
         </div> <br>
       </form>
-      <form #f="ngForm" (ngSubmit)="onSubmit($event,f)">
+      <form #f="ngForm" (ngSubmit)="onSubmit($event)">
         <p class="nav-heading">Type</p>
         <label for="">
           <input type="checkbox" ngModel name="Type" value="Road">Road

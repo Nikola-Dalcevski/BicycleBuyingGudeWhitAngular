@@ -25,25 +25,6 @@ export class GetBikesService {
   isFinished: boolean;
   constructor(private http: Http) {
 
-    // http.get('https://raw.githubusercontent.com/Nikola-Dalcevski/test-api/master/db.json')
-    //   .subscribe(res => {
-
-    //     let data = res.json().Bikes;
-    //     this.bikess = [];
-    //     for (let bike of data) {
-
-
-    //       this.bikess.push(new Bike(bike));
-    //       console.log("call on submit");
-
-    //     }
-    //     console.log(this.bikess);
-    //     this.isFinished = true;
-
-    //     this.sendObjectWhitBikes = { bikes: this.bikess, isFinished: this.isFinished };
-    //     this.Bikes.next(this.sendObjectWhitBikes);
-    //   })
-
   
   }
   getBikes(){

@@ -21,24 +21,16 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 
 
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
-
-   
-
- 
 
   ],
   imports: [
     BrowserModule,
     HttpModule,
     AngularFontAwesomeModule,
-    AngularFireModule.initializeApp(environment.firabase),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     ApRoutingModule,

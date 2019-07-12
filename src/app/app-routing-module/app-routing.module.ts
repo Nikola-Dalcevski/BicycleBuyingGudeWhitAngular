@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router'
 import { TypeOfBikesComponent } from '../type-of-bike-module/components/type-of-bikes/type-of-bikes.component';
 import { BikeFeaturesComponent } from '../bike-features-module/components/bike-features/bike-features.component';
@@ -26,7 +25,6 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
     RouterModule.forRoot(
       appRoutes,
      

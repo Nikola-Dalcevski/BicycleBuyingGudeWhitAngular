@@ -47,15 +47,12 @@ export class AuthFirebaseService {
           .auth
           .createUserWithEmailAndPassword(email, password)
           .then(() => {
-        
-            // if (this.firebaseAuth.user) {
               this.login(email,password);
-              this.firebaseAuth.user.subscribe(user => user.updateProfile({ displayName: name }));
-             
-            // }           
+              this.firebaseAuth.user.subscribe(user => user.updateProfile({ displayName: name }));           
+      
           })
           .then(() => {
-            // if (this.firebaseAuth.user) {
+
               this.firebaseAuth.user.subscribe(user => {
                 this.db.database.ref(user.uid).set({
                   bikes: [""],
@@ -63,8 +60,6 @@ export class AuthFirebaseService {
                 });
               })
 
-              
-            // }
             this.isRegistered = true;
             //this throw is important so can redirect from register component
             throw "Register";
@@ -82,13 +77,7 @@ export class AuthFirebaseService {
     console.log(this.errorMessage);
     this.error.next(this.errorMessage);
     this.isRegistered = false;
-    }
-    
-
-
-   
-    
-    
+    }   
   };
 
 
@@ -101,7 +90,6 @@ export class AuthFirebaseService {
         this.userId = value.user.uid
       })
       .catch(err => {
-        // this.logInError = err.message;
         this.user.next({bikeuser : null, error : err.message});
       });
   }

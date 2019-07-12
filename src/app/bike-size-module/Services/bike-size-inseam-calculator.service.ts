@@ -14,6 +14,16 @@ export class BikeSizeInseamCalculatorService {
 
     constructor() { }
 
+
+    arrayHeightSizes(min, max) {
+         let heightSizes = [];
+        for (min; min <= max; min++) {
+          heightSizes.push(min);
+        }
+        return heightSizes;
+      }
+
+
     changeSizeInseam(value: number) {
         let min;
         let max;
