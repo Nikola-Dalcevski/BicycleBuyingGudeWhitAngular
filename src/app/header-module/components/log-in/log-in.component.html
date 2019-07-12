@@ -1,5 +1,5 @@
 <div class="logInText " *ngIf="!showUserMenu">
-    <form #logInForm="ngForm" class="form-inline my-2 my-lg-0 " (submit)="onSubmit(logInForm)">
+    <form #logInForm="ngForm" class="form-inline my-2 my-lg-0 " (submit)="login(logInForm)">
         <div class="form-group ">
             <input ngModel email required #email="ngModel" name="email" type="email" class="form-control-sm  mr-sm-2 "
                 placeholder="Email">

@@ -16,16 +16,14 @@ export class LogInComponent implements OnInit {
 
   constructor(public authService: AuthFirebaseService ) {}
 
-  onSubmit(logInForm) {
+  login(logInForm) {
   this.email = logInForm.value.email;
   this.password =  logInForm.value.pass;
   this.authService.login(this.email, this.password); 
-  // this.loginError = this.authService.logInError; 
   }
 
   changeShow(event){
-    console.log(event);
-    this.showUserMenu = false;
+    this.showUserMenu = event;
   }
 
 

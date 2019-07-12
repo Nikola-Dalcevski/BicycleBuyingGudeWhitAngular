@@ -38,8 +38,7 @@ export class GetBikesService {
           this.listBikes.push(new Bike(bike));
 
         }
-        console.log(this.listBikes);
-        this.isFinished = true;
+
         this.sendObjectWhitBikes = { bikes: this.listBikes};
         this.Bikes.next(this.sendObjectWhitBikes);
       })

@@ -66,7 +66,6 @@ export class AuthFirebaseService {
           })
           .catch(err => {
             this.errorMessage = err.message;
-            console.log(this.errorMessage);
             this.error.next(this.errorMessage);
             this.isRegistered = false;
           })

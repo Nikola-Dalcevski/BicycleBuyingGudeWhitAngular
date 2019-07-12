@@ -14,16 +14,12 @@ export class UserMenuComponent implements OnInit {
   showHideUserMenu: boolean = true;
   constructor(private authService: AuthFirebaseService) { }
 
-  dropDown() {
-    this.showHideUserMenu = !this.showHideUserMenu;
-  }
 
-  log(model) {
-    console.log(model);
+
+  log() {
     event.preventDefault();
     this.authService.logout();
-    console.log("logout");
-    this.showwUserMenu.emit(false);
+     this.showwUserMenu.emit(false);
   }
 
 

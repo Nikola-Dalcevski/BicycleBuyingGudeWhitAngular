@@ -19,7 +19,6 @@ export class ExploreBikesComponent implements OnInit {
 
 
   ngOnInit() {
-    console.log("explore")
     this.getBikes.getBikes();
     this.getBikes.sendBikes.subscribe(bikes => {
       if (bikes) {

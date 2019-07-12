@@ -26,8 +26,10 @@ import { BehaviorSubject } from 'rxjs';
     let filterBikesType = [];
     let filterBikesBrand = [];
     let filterBikesSize = [];
-    let test;
-   console.log(filtersList);
+
+
+
+
     for (let element of filtersList) {
   
       if (element.checked && element.name == "Type") typeFilters.push(element.value);
@@ -39,7 +41,6 @@ import { BehaviorSubject } from 'rxjs';
      filterBikesType = this.filterBikesBySection(typeFilters,BikeList,"type");
      filterBikesBrand = this.filterBikesBySection(brandFilters, filterBikesType, "brand");
      filterBikesSize = this.filterBikesBySection(sizeFilters,filterBikesBrand, "tireSize");
-     console.log(filterBikesSize);
      this.filterSendBikes.next(filterBikesSize);
 
 
@@ -54,7 +55,6 @@ import { BehaviorSubject } from 'rxjs';
           )
        
         listBike.push(...filterbikes);
-        console.log(listBike)
       })    
     }else {
       listBike = listOfBikes;     

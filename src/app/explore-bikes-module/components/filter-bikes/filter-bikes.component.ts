@@ -35,13 +35,11 @@ export class FilterBikesComponent implements OnInit {
 
 
 
-  showFilteredBikes() {
+  showFilteredBikesOrAllbikes() {
     if (this.usedfilter) {
       this.filteredBikes = this.selBike;
-      console.log("first");
     }
     else {
-      console.log("second");
       this.filteredBikes = this.BikesList;
     }
   }
@@ -50,8 +48,6 @@ export class FilterBikesComponent implements OnInit {
     this.usedfilter = true;
     let search = form.value.search;
     this.filterService.searchBikes(search, this.BikesList)
-    console.log(search)
-    // form.reset();
   }
 
 
@@ -59,13 +55,9 @@ export class FilterBikesComponent implements OnInit {
   ngOnInit() {
 
     
-    this.filterService.sendBikeList.subscribe(bikes => {
-    
+     this.filterService.sendBikeList.subscribe(bikes => {
       this.selBike = bikes;
-      this.showFilteredBikes();
-      // if (this.child) {
-      //    this.child.setPage(1);
-      // }
+      this.showFilteredBikesOrAllbikes();
     });
   }
 }

@@ -3,6 +3,7 @@
     position: relative;
     /* overflow: visible; */
     background-color: black;
+    min-height: 65px;
 }
 .nav-heading{
     font-weight: bold;

@@ -27,7 +27,6 @@ export class ShowBikesComponent implements OnInit {
 
 
   ngOnChanges(){
-        //  let change = changes["bikeList"].currentValue;
 
            this.setPage(1);
   }

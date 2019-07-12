@@ -6,7 +6,6 @@ import { UserMenuComponent } from './components/user-menu/user-menu.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { UserFavoritebikesComponent } from './components/user-favoritebikes/user-favoritebikes.component';
-
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 

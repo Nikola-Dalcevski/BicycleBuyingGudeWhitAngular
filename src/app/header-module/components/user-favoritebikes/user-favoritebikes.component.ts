@@ -18,53 +18,49 @@ export class UserFavoritebikesComponent implements OnInit {
   userBikes;
   usersizes;
   userId;
-  test: [];
-  s: string;
+  bikesFirebaseIds: [];
+  bikeFirebaseId: string;
+
+
   constructor(private getDAta: HttpUserBikesService,
-     private db: AngularFireDatabase,
-     private auth: AuthFirebaseService) { 
-       console.log()
-     }
+    private db: AngularFireDatabase,
+    private auth: AuthFirebaseService) {
+  }
 
-  remove(bike){
-   
-     let me =  this.test.find(x => {
-     this.s = x[1];
-     return this.s.toLowerCase() === bike.replace(/\-/g, ' ');
-    
-   });
 
-    
+
+
+  remove(bike) {
+
+    let removeBike = this.bikesFirebaseIds.find(x => {
+      this.bikeFirebaseId = x[1];
+      return this.bikeFirebaseId.toLowerCase() === bike.replace(/\-/g, ' ');
+
+    });
+
     this.userId = this.auth.userId;
-    console.log(this.userId);
-    
-    this.db.list(`/${this.userId}/bikes`).remove(me[0]);
+    this.db.list(`/${this.userId}/bikes`).remove(removeBike[0]);
     this.getDAta.FetchUsersBikes();
- 
-  
-   console.log(me)
-       
-   
+
   }
   ngOnInit() {
-   console.log()
-    if(this.auth.userId){
+    if (this.auth.userId) {
       this.getDAta.FetchUsersBikes().subscribe(x => {
+
         this.userBikes = [];
         this.linkBikes = [];
         this.userBikes = x;
-        console.log(this.userBikes);
-       
+
         if (this.userBikes) {
           this.userBikes.bikes.forEach(bike => this.linkBikes.push(bike.replace(/\s/g, '-').toLowerCase()));
           this.usersizes = this.userBikes.sizes;
-          this.test = this.userBikes.test;
-         
+          this.bikesFirebaseIds = this.userBikes.bikesFirebaseIds;
+
         }
       });
     }
-    
+
   }
-  
+
 
 }

@@ -23,7 +23,6 @@ export class RegisterUserComponent implements OnInit {
   confirmPassword: string;
 
   constructor(private authService: AuthFirebaseService,
-
     private router: Router) { }
 
   onSubmit(event, eve) {
@@ -44,20 +43,15 @@ export class RegisterUserComponent implements OnInit {
 
 
   ngOnInit() {
-    // this.errorMessage = "";
+
     this.authService.errrorSend.subscribe(x => {
-      console.log(x);
       if (x) {
         this.errorMessage = x
       } 
-       console.log(this.authService.isRegistered);
       if(this.authService.isRegistered){
        
-          this.router.navigate(['/']);
-       
-      }
-       
-      
+          this.router.navigate(['/']);     
+      }   
     });
   }
 }

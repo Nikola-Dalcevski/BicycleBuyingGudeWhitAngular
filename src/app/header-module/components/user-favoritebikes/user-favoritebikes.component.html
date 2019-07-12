@@ -8,7 +8,7 @@
   <img src="../../../../assets/Images/brand1.jpg" height=100px; alt="cube logo">
   <h3> Your Bikes Size:</h3>
   <div class="size">
-   
+
     <div *ngIf="usersizes">
       <p>Your Mountain and Hybrid bike tube size is {{ userBikes.sizes.MountHibrid.inches }}</p>
       <p>Your Mountain and Hybrid bike size is {{userBikes.sizes.MountHibrid.size}}</p>
@@ -21,40 +21,38 @@
         Go to the link below to make a calculation.
       </p>
     </div>
-    
+
   </div>
 
- <a   routerLink="/sizecalculator" routerLinkActive="active"> <button class="btn-primary link">Mesure your bike size</button></a>
- <h3> Your fvorite bikes:</h3>
+  <a routerLink="/sizecalculator" routerLinkActive="active"> <button class="btn-primary link">Mesure your bike size</button></a>
+  <h3> Your fvorite bikes:</h3>
   <div class="showFav" id="fav">
-  
+
     <div *ngIf='!(linkBikes.length - 1)'>
       <p>
         You haven't select bike yet :
       </p>
       <p>
-        Go to the link below to explore bikes. 
+        Go to the link below to explore bikes.
       </p>
     </div>
-   
-     <div *ngIf="linkBikes.length -1" class="showFav" >
+
+    <div *ngIf="linkBikes.length -1" class="showFav">
       <p>You have selected: <span>{{linkBikes.length -1}}</span> bikes </p>
-      <ul *ngFor="let bike of linkBikes; let i = index " >
-       
-        <li *ngIf="i > 0"> 
+      <ul *ngFor="let bike of linkBikes; let i = index ">
+
+        <li *ngIf="i > 0">
           <a routerLink="/explorebikes/{{bike}}">
             {{bike}}
           </a>
-         <button class="remove btn-danger" (click)="remove(bike)">X</button>
-    
+          <button class="remove btn-danger" (click)="remove(bike)">X</button>
+
         </li>
       </ul>
-     
-     </div>
-    
 
     </div>
-   <a class="link" routerLink="/explorebikes" > <button class="btn-primary link">Explore bikes</button></a>
-  </div>
 
- 
+
+  </div>
+  <a class="link" routerLink="/explorebikes"> <button class="btn-primary link">Explore bikes</button></a>
+</div>

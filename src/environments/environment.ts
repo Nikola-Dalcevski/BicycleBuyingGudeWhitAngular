@@ -3,9 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true,
+  production: false,
   firebase: {
-    apiKey: "AIzaSyDHS_EjNWEykvMI8ZHruhQbZ161P3GonT4",
+     apiKey: "AIzaSyDHS_EjNWEykvMI8ZHruhQbZ161P3GonT4",
+    // apiKey: "AIzaSyAvpoyas1lea4HxGJE2z-aeX7ZLt1Qb9nY",
     authDomain: "frontend-project-with-firebase.firebaseapp.com",
     databaseURL: "https://frontend-project-with-firebase.firebaseio.com",
     projectId: "frontend-project-with-firebase",
