@@ -48,16 +48,23 @@ export class AuthFirebaseService {
           .createUserWithEmailAndPassword(email, password)
           .then(() => {
               this.login(email,password);
-              this.firebaseAuth.user.subscribe(user => user.updateProfile({ displayName: name }));           
+              if(this.firebaseAuth.user){
+                this.firebaseAuth.user.subscribe(user => user.updateProfile({ displayName: name }));        
+              }
+                
       
           })
           .then(() => {
 
+           
               this.firebaseAuth.user.subscribe(user => {
-                this.db.database.ref(user.uid).set({
-                  bikes: [""],
-                  sizes: { size: "" },
-                });
+                if(this.firebaseAuth.user){
+                  this.db.database.ref(user.uid).set({
+                    bikes: [""],
+                    sizes: { size: "" },
+                  });
+                }
+               
               })
 
             this.isRegistered = true;
